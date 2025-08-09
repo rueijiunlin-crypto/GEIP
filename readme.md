@@ -11,3 +11,6 @@ git push -u origin main --force
 git add .
 git commit -m "更新了什麼功能"
 git push
+
+連結
+https://rueijiunlin-crypto.github.io/GEIP/
