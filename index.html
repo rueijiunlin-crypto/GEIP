@@ -1,166 +1,167 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.png" type="image/png">
-  <title>首頁</title>
-  <link rel="stylesheet" href="geip_website_style.css">
-  <script src="title_prefix.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- 基本 SEO -->
-  <meta name="description" content="綠色工程產學共育實習學程：計畫簡介、課程資訊、跨領域專題、實習專區、教學資源與申請流程。">
-  <meta name="keywords" content="綠色工程, 實習學程, 課程資訊, 跨領域專題, 產學合作, 高科大, GEIP">
-  <meta name="author" content="國立高雄科技大學 綠色工程產學共育實習學程">
-
-  <!-- Canonical（避免重複內容） -->
-  <link rel="canonical" href="https://rueijiunlin-crypto.github.io/GEIP/">
-
-  <!-- 社群分享 Open Graph -->
-  <meta property="og:title" content="綠色工程產學共育實習學程">
-  <meta property="og:description" content="提供計畫緣起、課程規劃、實習專區、合作企業與相關申請流程等資訊。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rueijiunlin-crypto.github.io/GEIP/">
-  <meta property="og:image" content="https://rueijiunlin-crypto.github.io/GEIP/banner.jpg">
-
-  <!-- Twitter Card（可選） -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="綠色工程產學共育實習學程">
-  <meta name="twitter:description" content="提供計畫緣起、課程規劃、實習專區、合作企業與相關申請流程等資訊。">
-  <meta name="twitter:image" content="https://rueijiunlin-crypto.github.io/GEIP/banner.jpg">
-
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>首頁</title>
+<link href="geip_website_style.css" rel="stylesheet"/>
+<script src="title_prefix.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- 基本 SEO -->
+<meta content="綠色工程產學共育實習學程：計畫簡介、課程資訊、跨領域專題、實習專區、教學資源與申請流程。" name="description"/>
+<meta content="綠色工程, 實習學程, 課程資訊, 跨領域專題, 產學合作, 高科大, GEIP" name="keywords"/>
+<meta content="國立高雄科技大學 綠色工程產學共育實習學程" name="author"/>
+<!-- Canonical（避免重複內容） -->
+<link href="https://rueijiunlin-crypto.github.io/GEIP/" rel="canonical"/>
+<!-- 社群分享 Open Graph -->
+<meta content="綠色工程產學共育實習學程" property="og:title"/>
+<meta content="提供計畫緣起、課程規劃、實習專區、合作企業與相關申請流程等資訊。" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://rueijiunlin-crypto.github.io/GEIP/" property="og:url"/>
+<meta content="https://rueijiunlin-crypto.github.io/GEIP/banner.jpg" property="og:image"/>
+<!-- Twitter Card（可選） -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="綠色工程產學共育實習學程" name="twitter:title"/>
+<meta content="提供計畫緣起、課程規劃、實習專區、合作企業與相關申請流程等資訊。" name="twitter:description"/>
+<meta content="https://rueijiunlin-crypto.github.io/GEIP/banner.jpg" name="twitter:image"/>
+<link href="tpl/styles/base.css" rel="stylesheet"/><link href="tpl/styles/layout.css" rel="stylesheet"/><link href="tpl/styles/components.css" rel="stylesheet"/></head>
 <body>
-
-  <!-- 導覽列 -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
-        <img src="logo.png" alt="logo">
+<!-- 導覽列 -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container-fluid">
+<a class="navbar-brand" href="index.html">
+<img alt="logo" src="logo.png"/>
         綠色工程學程
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <!-- 計畫簡介 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">計畫簡介</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="origin.html">計畫緣起</a></li>
-              <li><a class="dropdown-item" href="goal.html">計畫目標</a></li>
-              <li><a class="dropdown-item" href="faculty.html">師資介紹</a></li>
-            </ul>
-          </li>
-
-          <!-- 訊息公告 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">訊息公告</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="news.html">最新消息</a></li>
-            </ul>
-          </li>
-
-          <!-- 學程資訊 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">學程資訊</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="rules.html">修課規範</a></li>
-              <li><a class="dropdown-item" href="curriculum.html">課程規劃表</a></li>
-              <li><a class="dropdown-item" href="apply.html">申請流程與表單</a></li>
-              <li><a class="dropdown-item" href="certificate.html">學程證書說明</a></li>
-            </ul>
-          </li>
-
-          <!-- 跨領域實務專題 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">跨領域實務專題</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="cross_discipline.html">修課規定</a></li>
-              <li><a class="dropdown-item" href="partners.html">合作企業</a></li>
-              <li><a class="dropdown-item" href="project_showcase.html">專題成果展示</a></li>
-            </ul>
-          </li>
-
-          <!-- 實習專區 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">實習專區</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="internship_rules.html">修課規定</a></li>
-              <li><a class="dropdown-item" href="internship_partners.html">合作企業</a></li>
-              <li><a class="dropdown-item" href="intern_experience.html">實習經驗分享</a></li>
-            </ul>
-          </li>
-
-          <!-- 教學資源 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">教學資源</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="videos.html">特色單元影片</a></li>
-              <li><a class="dropdown-item" href="materials.html">課程教材下載區</a></li>
-            </ul>
-          </li>
-
-          <!-- 互動交流 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">互動交流</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="contact.html">聯絡我們</a></li>
-              <li><a class="dropdown-item" href="faq.html">常見問答</a></li>
-              <li><a class="dropdown-item" href="links.html">相關網站</a></li>
-              <li><a class="dropdown-item" href="gallery.html">活動花絮</a></li>
-            </ul>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
- 
-  <!-- 主內容區 -->
-  <div class="container">
-    <h1>綠色工程產學共育實習學程</h1>
-    <p>歡迎來到本學程官方網站，請透過上方選單了解更多學程相關資訊。</p>
-  </div>
-  <!-- Banner 區塊 -->
-  <div class="banner"></div>
-
-  <!-- 輪播區塊 -->
-  <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="slide1.jpg" class="d-block w-100" alt="圖片1">
-      </div>
-      <div class="carousel-item">
-        <img src="slide2.jpg" class="d-block w-100" alt="圖片2">
-      </div>
-      <div class="carousel-item">
-        <img src="slide3.JPG" class="d-block w-100" alt="圖片3">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-  </div>
-
-  
-
-  <!-- 頁尾 -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 國立高雄科技大學 綠色工程產學共育實習學程</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+<button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav">
+<!-- 計畫簡介 -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">計畫簡介</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="origin.html">計畫緣起</a></li>
+<li><a class="dropdown-item" href="goal.html">計畫目標</a></li>
+<li><a class="dropdown-item" href="faculty.html">師資介紹</a></li>
+</ul>
+</li>
+<!-- 訊息公告 -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">訊息公告</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="news.html">最新消息</a></li>
+</ul>
+</li>
+<!-- 學程資訊 -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">學程資訊</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="rules.html">修課規範</a></li>
+<li><a class="dropdown-item" href="curriculum.html">課程規劃表</a></li>
+<li><a class="dropdown-item" href="apply.html">申請流程與表單</a></li>
+<li><a class="dropdown-item" href="certificate.html">學程證書說明</a></li>
+</ul>
+</li>
+<!-- 跨領域實務專題 -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">跨領域實務專題</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="cross_discipline.html">修課規定</a></li>
+<li><a class="dropdown-item" href="partners.html">合作企業</a></li>
+<li><a class="dropdown-item" href="project_showcase.html">專題成果展示</a></li>
+</ul>
+</li>
+<!-- 實習專區 -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">實習專區</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="internship_rules.html">修課規定</a></li>
+<li><a class="dropdown-item" href="internship_partners.html">合作企業</a></li>
+<li><a class="dropdown-item" href="intern_experience.html">實習經驗分享</a></li>
+</ul>
+</li>
+<!-- 教學資源 -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">教學資源</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="videos.html">特色單元影片</a></li>
+<li><a class="dropdown-item" href="materials.html">課程教材下載區</a></li>
+</ul>
+</li>
+<!-- 互動交流 -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">互動交流</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="contact.html">聯絡我們</a></li>
+<li><a class="dropdown-item" href="faq.html">常見問答</a></li>
+<li><a class="dropdown-item" href="links.html">相關網站</a></li>
+<li><a class="dropdown-item" href="gallery.html">活動花絮</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- 主內容區 -->
+<div class="container"><main class="container">
+<section class="section">
+<div class="section-title">
+<div class="section-title__bar"></div>
+<div class="section-title__text">焦點輪播</div>
+</div>
+<banner-carousel></banner-carousel>
+</section>
+<section class="section">
+<div class="section-title">
+<div class="section-title__bar"></div>
+<div class="section-title__text">精選公告</div>
+</div>
+<news-list src="data/news.json"></news-list>
+</section>
+<section class="section">
+<div class="section-title">
+<div class="section-title__bar"></div>
+<div class="section-title__text">活動花絮</div>
+</div>
+<album-grid src="data/albums.json"></album-grid>
+</section>
+</main></div>
+<!-- Banner 區塊 -->
+<div class="banner"></div>
+<!-- 輪播區塊 -->
+<div class="carousel slide" data-bs-ride="carousel" id="mainCarousel">
+<div class="carousel-indicators">
+<button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#mainCarousel" type="button"></button>
+<button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#mainCarousel" type="button"></button>
+<button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#mainCarousel" type="button"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img alt="圖片1" class="d-block w-100" src="slide1.jpg"/>
+</div>
+<div class="carousel-item">
+<img alt="圖片2" class="d-block w-100" src="slide2.jpg"/>
+</div>
+<div class="carousel-item">
+<img alt="圖片3" class="d-block w-100" src="slide3.jpg"/>
+</div>
+</div>
+<button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#mainCarousel" type="button">
+<span aria-hidden="true" class="carousel-control-prev-icon"></span>
+</button>
+<button class="carousel-control-next" data-bs-slide="next" data-bs-target="#mainCarousel" type="button">
+<span aria-hidden="true" class="carousel-control-next-icon"></span>
+</button>
+</div>
+<!-- 頁尾 -->
+<footer class="footer">
+<div class="container">
+<p>© 2025 國立高雄科技大學 綠色工程產學共育實習學程</p>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="tpl/components/album-grid.js"></script><script src="tpl/components/banner-carousel.js"></script><script src="tpl/components/course-table.js"></script><script src="tpl/components/footer.js"></script><script src="tpl/components/navbar.js"></script><script src="tpl/components/news-detail.js"></script><script src="tpl/components/news-list.js"></script><script src="tpl/components/news-paginated.js"></script><script src="tpl/components/project-list.js"></script><script src="tpl/components/video-embed.js"></script><script src="tpl/components/videos-list.js"></script></body>
 </html>
