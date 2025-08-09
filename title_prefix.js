@@ -1,6 +1,6 @@
 // title_prefix.js
 document.addEventListener("DOMContentLoaded", function() {
-    const prefix = "綠色工程學系-"; // 這裡可以改成你要的前綴
+    const prefix = "綠色工程產學共育實習學程"; // 這裡可以改成你要的前綴
     let currentTitle = document.title;
 
     // 如果標題沒有前綴才加
