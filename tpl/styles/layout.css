@@ -1,4 +1,0 @@
-.header-spacer{height:64px}
-.section-title{display:flex;align-items:center;gap:10px;margin-bottom:var(--space-4)}
-.section-title__bar{width:6px;height:22px;background:var(--color-primary);border-radius:4px}
-.section-title__text{font-size:var(--fs-xl);font-weight:700}
