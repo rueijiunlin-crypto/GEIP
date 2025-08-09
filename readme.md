@@ -9,7 +9,7 @@ git push -u origin main --force
 
 後續更新
 git add .
-git commit -m "更新了什麼功能"
+git commit -m "整合圖片"
 git push
 
 連結
