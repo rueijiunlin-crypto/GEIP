@@ -1,19 +1,18 @@
-// title_prefix.js
+// title_prefix.js  (v2)
 document.addEventListener("DOMContentLoaded", () => {
   const PREFIX = "綠色工程產學共育實習學程";
 
-  // 先拿 <title>
-  let pageName = (document.title || "").trim();
+  // 取得目前 <title>
+  let t = (document.title || "").trim();
 
   // 某些模板會留 "(title)"，視同沒填
-  if (!pageName || pageName === "(title)") {
-    // 退而求其次：用頁面的 <h1>
+  if (!t || t === "(title)") {
     const h1 = document.querySelector("h1");
-    if (h1) pageName = h1.textContent.trim();
+    if (h1) t = h1.textContent.trim();
   }
 
-  // 再不行就用檔名對照
-  if (!pageName) {
+  // 若仍然沒有，退而求其次用檔名對照表
+  if (!t) {
     const file = (location.pathname.split("/").pop() || "index.html")
       .replace(/\.html?$/i, "");
     const map = {
@@ -39,8 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
       links: "相關網站",
       gallery: "活動花絮",
     };
-    pageName = map[file] || file;
+    t = map[file] || file;
   }
 
-  document.title = `${PREFIX} - ${pageName}`;
+  // ✅ 先把舊前綴或多餘連字號拿掉（例如「綠色工程學系 - 首頁」或「任何字 - 首頁」）
+  t = t.replace(
+    /^(綠色工程學系|綠色工程產學共育實習學程)\s*[-–—]\s*/i,
+    ""
+  ).replace(/^\s*[-–—]\s*/, ""); // 防止原本就有開頭的 -
+
+  // 最終套用新前綴
+  document.title = `${PREFIX} - ${t}`;
 });
