@@ -26,8 +26,13 @@
           </ul>
         </li>
 
-        <!-- 訊息公告 -->
-        <li class="nav-item"><a class="nav-link" href="news.html">訊息公告</a></li>
+        <!-- 訊息公告（下拉選單） -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">訊息公告</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="news.html">最新消息</a></li>
+          </ul>
+        </li>
 
         <!-- 學程資訊 -->
         <li class="nav-item dropdown">
@@ -107,7 +112,15 @@
         <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="faculty.html">師資介紹</a>
       </div>
 
-      <a class="list-group-item list-group-item-action list-group-item-dark" href="news.html">訊息公告</a>
+      <!-- 訊息公告（手風琴） -->
+      <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse" data-bs-target="#m-news" aria-expanded="false">
+        訊息公告 <span class="ms-2">▾</span>
+      </button>
+      <div id="m-news" class="collapse">
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="news.html">最新消息</a>
+      </div>
+
 
       <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
               data-bs-toggle="collapse" data-bs-target="#m-info">
