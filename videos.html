@@ -81,85 +81,95 @@
       </div>
     </div>
   </nav>
-  
-  <section class="my-4" id="featured-video-section">
-    <!-- 主影片會用 JS 動態載入 -->
-  </section>
 
-  <section class="my-5">
-    <h3 class="mb-3">延伸觀看</h3>
-    <div class="row g-3" id="related-videos-container">
-     <!-- 延伸影片卡片會用 JS 動態載入 -->
-    </div>
-  </section>
+  <!-- 主內容容器：要在 body 的直層，讓 footer 貼底 -->
+  <div class="container my-4">
+    <!-- 特色影片（由 JS 動態載入） -->
+    <section id="featured-video-section"></section>
 
+    <!-- 延伸觀看（由 JS 動態載入） -->
+   <section class="my-5">
+      <h3 class="mb-3">延伸觀看</h3>
+      <div class="row g-3" id="related-videos-container"></div>
+    </section>
+  </div>
+
+  <!-- 放在 </body> 前：讀取 JSON 並生成畫面 -->
   <script>
-  (async function(){
-    const res = await fetch('assets/data/videos.json');
-    const data = await res.json();
+  (async function () {
+    try {
+      // ✅ 路徑用網址寫法，不要用 D:\...
+     const res = await fetch('assets/videos/videos.json');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
 
-    // ===== 主影片 =====
-   const featuredSection = document.getElementById('featured-video-section');
-    const fv = data.featuredVideo;
-    featuredSection.innerHTML = `
-     <h2 class="mb-3">${fv.title}</h2>
-     <div class="video-hero position-relative rounded overflow-hidden">
-        <video id="featureVideo" class="w-100 d-block"
-          src="${fv.src}" poster="${fv.poster}"
-          autoplay muted loop playsinline controls preload="metadata">
-          您的瀏覽器不支援內嵌影片
-       </video>
-        <button id="unmuteBtn"
-          class="btn btn-light btn-lg shadow position-absolute top-50 start-50 translate-middle d-none">
-          🔊 開聲音播放
-       </button>
-      </div>
-      <p class="mt-2 text-muted">${fv.description}</p>
-   `;
+      // ===== 特色影片 =====
+      const featuredSection = document.getElementById('featured-video-section');
+      const fv = data.featuredVideo;
+     featuredSection.innerHTML = `
+        <h2 class="mb-3">${fv.title}</h2>
+        <div class="video-hero position-relative rounded overflow-hidden">
+          <video id="featureVideo" class="w-100 d-block"
+            src="${fv.src}" poster="${fv.poster || ''}"
+            autoplay muted loop playsinline controls preload="metadata">
+           您的瀏覽器不支援內嵌影片
+          </video>
+          <button id="unmuteBtn"
+            class="btn btn-light btn-lg shadow position-absolute top-50 start-50 translate-middle d-none">
+            🔊 開聲音播放
+         </button>
+        </div>
+        ${fv.description ? `<p class="mt-2 text-muted">${fv.description}</p>` : '' }
+     `;
 
-    // ===== 延伸觀看 =====
-    const relatedContainer = document.getElementById('related-videos-container'); 
-    relatedContainer.innerHTML = data.relatedVideos.map(v => `
-      <div class="col-12 col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="${v.link}" target="_blank" rel="noopener noreferrer">
-          <div class="card h-100">
-            <img src="${v.thumbnail}" class="card-img-top" alt="${v.title}">
-            <div class="card-body">
-             <h5 class="card-title">${v.title}</h5>
-              <p class="card-text text-muted mb-0">${v.description}</p>
-           </div>
-          </div>
-        </a>
-      </div>
-   `).join('');
+      // ===== 延伸觀看 =====
+      const box = document.getElementById('related-videos-container');
+      box.innerHTML = (data.relatedVideos || []).map(v => `
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="text-decoration-none" href="${v.link}" target="_blank" rel="noopener noreferrer">
+            <div class="card h-100">
+              ${v.thumbnail ? `<img src="${v.thumbnail}" class="card-img-top" alt="${v.title}">` : ''}
+              <div class="card-body">
+                <h5 class="card-title">${v.title}</h5>
+                ${v.description ? `<p class="card-text text-muted mb-0">${v.description}</p>` : ''}
+              </div>
+            </div>
+          </a>
+        </div>
+     `).join('');
 
-    // ===== 開聲音邏輯 =====
-   const video = document.getElementById('featureVideo');
-   const unmuteBtn = document.getElementById('unmuteBtn');
-   const KEY = 'video_sound_preference';
-   const pref = localStorage.getItem(KEY);
+     // ===== 使用者「開聲音」邏輯 =====
+      const video = document.getElementById('featureVideo');
+      const unmuteBtn = document.getElementById('unmuteBtn');
+      const KEY = 'video_sound_preference';
+      const pref = localStorage.getItem(KEY);
 
-    if (pref === 'unmuted') {
-      video.muted = false;
-      video.play().catch(()=>unmuteBtn.classList.remove('d-none'));
-    }
-   if (!pref) unmuteBtn.classList.remove('d-none');
+      if (pref === 'unmuted') {
+        video.muted = false;
+        video.play().catch(() => unmuteBtn.classList.remove('d-none'));
+      }
+      if (!pref) unmuteBtn.classList.remove('d-none');
 
-   unmuteBtn.addEventListener('click', () => {
-      video.muted = false;
-      video.play().finally(() => {
-        localStorage.setItem(KEY, 'unmuted');
-        unmuteBtn.classList.add('d-none');
+      unmuteBtn.addEventListener('click', () => {
+        video.muted = false;
+       video.play().finally(() => {
+          localStorage.setItem(KEY, 'unmuted');
+          unmuteBtn.classList.add('d-none');
+        });
+     });
+
+      video.addEventListener('volumechange', () => {
+        localStorage.setItem(KEY, video.muted ? 'muted' : 'unmuted');
       });
-   });
-
-    video.addEventListener('volumechange', () => {
-      localStorage.setItem(KEY, video.muted ? 'muted' : 'unmuted');
-   });
-
+    } catch (err) {
+      console.error('載入 videos.json 失敗：', err);
+     const box = document.getElementById('featured-video-section');
+      if (box) box.innerHTML =
+        '<div class="alert alert-danger">無法載入影片資料，請稍後再試。</div>';
+   }
   })();
   </script>
-
+  <!-- 尾部 -->
   <footer class="footer">
     <div class="container">
       <p>© 2025 國立高雄科技大學 綠色工程產學共育實習學程</p>
