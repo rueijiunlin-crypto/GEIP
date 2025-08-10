@@ -1,0 +1,175 @@
+
+<!-- partials/navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="logo"> 綠色工程學程
+    </a>
+
+    <!-- 手機/平板：開啟側邊導覽 -->
+    <button class="navbar-toggler d-lg-none" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+            aria-controls="mobileNav" aria-label="開啟導覽">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- 桌機：原本的導覽列（只在 >= lg 顯示） -->
+    <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- 計畫簡介 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">計畫簡介</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="origin.html">計畫緣起</a></li>
+            <li><a class="dropdown-item" href="goal.html">計畫目標</a></li>
+            <li><a class="dropdown-item" href="faculty.html">師資介紹</a></li>
+          </ul>
+        </li>
+
+        <!-- 訊息公告 -->
+        <li class="nav-item"><a class="nav-link" href="news.html">訊息公告</a></li>
+
+        <!-- 學程資訊 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">學程資訊</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="rules.html">修課規範</a></li>
+            <li><a class="dropdown-item" href="curriculum.html">課程規劃表</a></li>
+            <li><a class="dropdown-item" href="apply.html">申請流程與表單</a></li>
+            <li><a class="dropdown-item" href="certificate.html">學程證書說明</a></li>
+          </ul>
+        </li>
+
+        <!-- 跨領域實務專題 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">跨領域實務專題</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="cross_discipline.html">修課規定</a></li>
+            <li><a class="dropdown-item" href="partners.html">合作企業</a></li>
+            <li><a class="dropdown-item" href="project_showcase.html">專題成果展示</a></li>
+          </ul>
+        </li>
+
+        <!-- 實習專區 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">實習專區</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="internship_rules.html">修課規定</a></li>
+            <li><a class="dropdown-item" href="internship_partners.html">合作企業</a></li>
+            <li><a class="dropdown-item" href="intern_experience.html">實習經驗分享</a></li>
+          </ul>
+        </li>
+
+        <!-- 教學資源 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">教學資源</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="videos.html">特色單元影片</a></li>
+            <li><a class="dropdown-item" href="materials.html">課程教材下載區</a></li>
+          </ul>
+        </li>
+
+        <!-- 互動交流 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">互動交流</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="contact.html">聯絡我們</a></li>
+            <li><a class="dropdown-item" href="faq.html">常見問答</a></li>
+            <li><a class="dropdown-item" href="links.html">相關網站</a></li>
+            <li><a class="dropdown-item" href="gallery.html">活動花絮</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 手機/平板：側邊全版導覽 -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mobileNavLabel">
+      <img src="logo.png" alt="" style="height:28px"> 綠色工程學程
+    </h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="關閉"></button>
+  </div>
+
+  <div class="offcanvas-body p-0">
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action list-group-item-dark" href="index.html">首頁</a>
+
+      <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse" data-bs-target="#m-plan" aria-expanded="false">
+        計畫簡介 <span class="ms-2">▾</span>
+      </button>
+      <div id="m-plan" class="collapse">
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="origin.html">計畫緣起</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="goal.html">計畫目標</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="faculty.html">師資介紹</a>
+      </div>
+
+      <a class="list-group-item list-group-item-action list-group-item-dark" href="news.html">訊息公告</a>
+
+      <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse" data-bs-target="#m-info">
+        學程資訊 <span class="ms-2">▾</span>
+      </button>
+      <div id="m-info" class="collapse">
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="rules.html">修課規範</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="curriculum.html">課程規劃表</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="apply.html">申請流程與表單</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="certificate.html">學程證書說明</a>
+      </div>
+
+      <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse" data-bs-target="#m-cross">
+        跨領域實務專題 <span class="ms-2">▾</span>
+      </button>
+      <div id="m-cross" class="collapse">
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="cross_discipline.html">修課規定</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="partners.html">合作企業</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="project_showcase.html">專題成果展示</a>
+      </div>
+
+      <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse" data-bs-target="#m-intern">
+        實習專區 <span class="ms-2">▾</span>
+      </button>
+      <div id="m-intern" class="collapse">
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="internship_rules.html">修課規定</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="internship_partners.html">合作企業</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="intern_experience.html">實習經驗分享</a>
+      </div>
+
+      <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse" data-bs-target="#m-teach">
+        教學資源 <span class="ms-2">▾</span>
+      </button>
+      <div id="m-teach" class="collapse">
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="videos.html">特色單元影片</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="materials.html">課程教材下載區</a>
+      </div>
+
+      <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse" data-bs-target="#m-interact">
+        互動交流 <span class="ms-2">▾</span>
+      </button>
+      <div id="m-interact" class="collapse">
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="contact.html">聯絡我們</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="faq.html">常見問答</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="links.html">相關網站</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="gallery.html">活動花絮</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 手機：點了 offcanvas 裡的連結就自動收起
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('#mobileNav a[href]');
+    if (!a) return;
+    const el = document.getElementById('mobileNav');
+    const inst = window.bootstrap?.Offcanvas.getInstance(el);
+    inst && inst.hide();
+  });
+</script>
