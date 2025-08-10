@@ -1,97 +1,99 @@
 /* ==========================================================================
-   GEIP 網站主樣式（精簡自用版）
+   GEIP 網站主樣式（統一色票 + 行動滿版導覽）
    說明：
-   - 僅保留你目前 HTML 有用到的樣式（Navbar / Dropdown / Banner / Carousel / Footer）
-   - 完整整合「頁腳貼底」與「導覽列固定高度」兩個需求
-   - 各段落有詳細註解，之後維護或擴充都好上手
+   - 這份已把所有顏色集中在 :root 變數，改色只要改最上面即可
+   - 已整合：固定導覽列高度、頁腳貼底、輪播固定高、行動版滿版 Offcanvas 導覽
    ========================================================================== */
 
-/* ========== 0) 全域變數：顏色集中管理（之後改色只要改這裡） ========== */
+/* ========== 0) 全域變數（色票 / 尺寸） ========== */
 :root {
-  --brand-green-900: #004d40;   /* 深綠：導覽列、頁腳底色 */
+  /* 色票 */
+  --brand-green-900: #004d40;   /* 深綠：導覽列、頁腳底色、行動導覽底 */
   --brand-green-700: #00695c;   /* 中綠：標題、主要文字 */
+  --brand-green-500: #00796b;   /* 次要連結色 */
   --brand-green-100: #e0f2f1;   /* 淺綠：hover 背景 */
-  --text-dark:       #1f2937;   /* 深灰：輔助文字 */
+  --text-dark:       #1f2937;   /* 輔助深灰（目前較少用） */
   --page-bg:         #f8f9fa;   /* 頁面背景（近白） */
+  --white:           #ffffff;
+  --black:           #000000;
+  --shadow-color:    rgba(0, 0, 0, .1);
+
+  /* 尺寸 */
+  --navbar-height:   80px;
+  --banner-height:   300px;
+  --carousel-h-lg:   420px;   /* 桌機輪播圖高 */
+  --carousel-h-md:   320px;   /* 平板輪播圖高 */
+  --carousel-h-sm:   240px;   /* 手機輪播圖高 */
 }
 
-/* ========== 1) 讓 Flex 能正確計算全頁高度（貼底關鍵條件） ========== */
+/* ========== 1) Flex 基礎：讓頁腳可貼底 ========== */
 html, body {
-  height: 100%;   /* 沒這行 flex 佈局不知道「整頁的高度」是多少 */
-  margin: 0;      /* 移除瀏覽器預設邊界，避免出現細縫 */
+  height: 100%;
+  margin: 0;
 }
 
-/* ========== 2) 全站排版 & Flex 佈局（讓 footer 能被推到底） ========== */
 body {
   font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   background-color: var(--page-bg);
   color: var(--brand-green-700);
   line-height: 1.6;
 
-  /* 讓頁面由上到下堆疊：Navbar → 主內容 → Footer */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;   /* 至少等於視窗高，內容不足時能貼底 */
+  min-height: 100vh; /* 內容不足時，footer 能被推到底 */
 }
 
-/* ========== 3) 導覽列（Navbar） ========== */
-/* 目的：固定高度、所有頁外觀一致；內容垂直置中 */
+/* ========== 2) 導覽列（Navbar） ========== */
 .navbar {
   background-color: var(--brand-green-900);
-  height: 80px;                 /* ✅ 固定導覽列高度（可依需求改 72/88） */
-  padding: 0 20px;              /* 左右留白 */
+  height: var(--navbar-height);         /* ✅ 固定高度 */
+  padding: 0 20px;
   display: flex;
-  align-items: center;          /* 讓內部元素垂直置中 */
+  align-items: center;                  /* 內容垂直置中 */
 }
 
-/* 左上品牌（Logo + 文字） */
 .navbar-brand {
-  color: #fff !important;
-  font-size: 2rem;              /* 品牌字體大小，會跟著高度一起感覺一致 */
+  color: var(--white) !important;
+  font-size: 2rem;
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 12px;                    /* Logo 與文字距離 */
+  gap: 12px;
 }
 
-/* Logo 高度建議略小於 Navbar 高度，保留呼吸空間 */
 .navbar-brand img {
-  height: 52px;                 /* ✅ 你可以改 48 / 56 視覺看起來舒服為主 */
+  height: calc(var(--navbar-height) - 28px); /* 讓 logo 比導覽列略小一點 */
   width: auto;
 }
 
-/* Navbar 內的連結統一垂直置中（配合固定高度） */
 .navbar-nav > li > a,
 .navbar .nav-link {
-  color: #fff !important;
+  color: var(--white) !important;
   font-size: 1rem;
-  line-height: 80px;            /* ✅ 和 Navbar 高度一致，達成垂直置中 */
+  line-height: var(--navbar-height);    /* ✅ 和導覽高度一致，達成垂直置中 */
   padding-top: 0;
   padding-bottom: 0;
 }
 
-/* 行動版漢堡按鈕不吃 line-height，維持 Bootstrap 既有行為即可 */
-
-/* ========== 4) 下拉選單（Dropdown） ========== */
-/* 需求：滑過展開、淺綠 hover；用 Bootstrap 結構，補上外觀 */
+/* ========== 3) 下拉選單（Dropdown） ========== */
 .nav-item.dropdown:hover .dropdown-menu {
-  display: block;               /* 滑過即展開 */
+  display: block;  /* 滑過即展開 */
   margin-top: 0;
   border-radius: 0;
 }
 
 .dropdown-menu {
-  display: none;                /* 預設隱藏，避免版面跳動 */
-  background-color: #fff;
-  border: none;                 /* 乾淨扁平外觀 */
+  display: none;
+  background-color: var(--white);
+  border: none;
   padding: 0;
-  z-index: 1000;                /* 蓋過內容 */
+  z-index: 1000;
 }
 
 .dropdown-item {
   color: var(--brand-green-700) !important;
+  background-color: var(--white);
   padding: 0.75rem 1.5rem;
-  background-color: #fff;
   transition: background-color .2s ease;
 }
 .dropdown-item:hover {
@@ -99,87 +101,134 @@ body {
   color: var(--brand-green-900);
 }
 
-/* ========== 5) 主內容容器（貼底關鍵設定） ========== */
-/* 目的：只讓「body 的直層主內容」去撑開高度，避免誤傷 footer 裡的 .container */
+/* ========== 4) 主內容容器（貼底關鍵） ========== */
 body > .container {
-  flex: 1;                      /* ✅ 撐開主內容 → Footer 被推到底 */
-  max-width: 1140px;            /* 與 Bootstrap 容器寬一致 */
+  flex: 1;                    /* ✅ 撐開主內容 → footer 貼底 */
+  max-width: 1140px;
   padding-top: 2rem;
   padding-bottom: 2rem;
   margin: 0 auto;
 }
 
-/* ========== 6) Banner（首頁橫幅，如果有用） ========== */
-/* 需求：固定高度、滿版置中 */
+/* ========== 5) Banner（首頁橫幅） ========== */
 .banner {
   width: 100%;
-  height: 300px;                /* 可改 280/320 視覺需求 */
+  height: var(--banner-height);
   background: url("banner.jpg") no-repeat center center / cover;
   margin-bottom: 2rem;
 }
 
-/* ========== 7) 輪播（Carousel） ========== */
-/* 需求：圖片固定高度、裁切填滿（object-fit） */
-.carousel {
-  margin-bottom: 2rem;
-}
+/* ========== 6) 輪播（Carousel） ========== */
+.carousel { margin-bottom: 2rem; }
 
-/* Bootstrap 的 .carousel-inner img 會佔滿寬度，這裡補高度與裁切 */
 .carousel-inner img {
-  height: 420px;                /* ✅ 桌機高度；可改 360/480 */
+  height: var(--carousel-h-lg);
   width: 100%;
-  object-fit: cover;            /* 保持比例，裁切填滿框 */
+  object-fit: cover;      /* 保持比例，裁切填滿 */
 }
 
-/* 指示點（小圓點）與左右箭頭沿用 Bootstrap 樣式即可，如需調整可再加 */
-
-/* ========== 8) 頁腳（Footer） ========== */
-/* 需求：顏色一致、置中、永遠在頁面最底（由 flex 推到底） */
+/* ========== 7) 頁腳（Footer） ========== */
 .footer {
   background-color: var(--brand-green-900);
-  color: #fff;
+  color: var(--white);
   text-align: center;
   padding: 14px 0;
-  margin-top: auto;             /* ✅ Flex 關鍵：把 footer 推到底 */
+  margin-top: auto;        /* ✅ Flex 關鍵：推到底 */
 }
 
-/* ========== 9) 一般文字與連結 ========== */
-h1, h2, h3 {
-  color: var(--brand-green-700);
-}
+/* ========== 8) 一般文字與連結 ========== */
+h1, h2, h3 { color: var(--brand-green-700); }
 
 a {
-  color: #00796b;
+  color: var(--brand-green-500);
   text-decoration: none;
 }
 a:hover {
   color: var(--brand-green-900);
 }
 
-/* ========== 10) 卡片（如有用到 Bootstrap .card） ========== */
+/* ========== 9) 卡片（Bootstrap .card） ========== */
 .card {
   border: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  box-shadow: 0 2px 6px var(--shadow-color);
   transition: transform .2s ease-in-out;
 }
-.card:hover {
-  transform: translateY(-5px);
-}
+.card:hover { transform: translateY(-5px); }
+
+/* ========== 10) 特色影片區塊 ========== */
+.video-hero { background: var(--black); }
+#unmuteBtn { opacity: .92; }
+#unmuteBtn.d-none { display: none !important; }
 
 /* ========== 11) RWD 響應：平板 / 手機調整 ========== */
 @media (max-width: 991px) {      /* 平板與小筆電 */
   .navbar-brand { font-size: 1.8rem; }
-  .carousel-inner img { height: 320px; }
+  .carousel-inner img { height: var(--carousel-h-md); }
 }
 
 @media (max-width: 767px) {      /* 手機 */
   .navbar-brand { font-size: 1.6rem; }
-  .carousel-inner img { height: 240px; }
+  .carousel-inner img { height: var(--carousel-h-sm); }
 }
 
-/* 特色影片區塊外觀（可選） */
-.video-hero { background: #000; }
+/* ========== 12) 行動版滿版 Offcanvas 導覽（手機專用） ========== */
+/* 讓手機/平板的側邊導覽是滿版、清楚、好點 */
+@media (max-width: 991.98px) {
+  /* Bootstrap offcanvas 深色主題容器：改為滿版寬度 */
+  .offcanvas.text-bg-dark {
+    background-color: var(--brand-green-900) !important; /* 深綠滿版 */
+    color: var(--white);
+    width: 100%;
+    max-width: 100%;   /* ✅ 滿版 */
+  }
 
-/* 開聲音按鈕在影片正中央（已在 HTML 用 position-absolute） */
-#unmuteBtn { opacity: .92; }
-#unmuteBtn.d-none { display: none !important; }
+  /* 背景遮罩更明顯一點 */
+  .offcanvas-backdrop.show { opacity: .6; }
+
+  /* 大項目：像按鈕一樣清楚 */
+  .offcanvas .list-group-item-dark {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255,255,255,.18);
+    padding: 1rem 1.25rem;
+    font-size: 1.075rem;
+    line-height: 1.3;
+  }
+  .offcanvas .list-group-item-dark:hover,
+  .offcanvas .list-group-item-dark:focus {
+    background: rgba(255,255,255,.08);
+    color: var(--white);
+  }
+
+  /* 子選單區塊：有淡底與分隔線，層級更明確 */
+  .offcanvas .collapse {
+    background: rgba(0,0,0,.12);
+    border-top: 1px solid rgba(255,255,255,.15);
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+
+  /* 子選單項目：內縮表示階層 */
+  .offcanvas .collapse .list-group-item-dark {
+    padding-left: 2rem;
+    font-size: 1rem;
+    border-color: rgba(255,255,255,.12);
+  }
+
+  /* 展開按鈕排版（標題 + 小箭頭） */
+  .offcanvas button.list-group-item-dark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .offcanvas button.list-group-item-dark span { opacity: .9; }
+}
+
+/* ========== 13)（可選）讓導覽列黏在頂端 ========== */
+/* 若想導覽列滾動時固定在視窗最上方，打開下面註解即可 */
+/*
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020; 
+}
+*/
