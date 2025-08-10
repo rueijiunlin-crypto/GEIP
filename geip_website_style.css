@@ -21,7 +21,7 @@
   /* 尺寸 */
   --navbar-height:   80px;
   --banner-height:   300px;
-  --carousel-h-lg:   420px;   /* 桌機輪播圖高 */
+  --carousel-h-lg:   1200px;   /* 桌機輪播圖高 */
   --carousel-h-md:   320px;   /* 平板輪播圖高 */
   --carousel-h-sm:   240px;   /* 手機輪播圖高 */
 }
@@ -109,14 +109,6 @@ body > .container {
   padding-top: 2rem;
   padding-bottom: 2rem;
   margin: 0 auto;
-}
-
-/* ========== 5) Banner（首頁橫幅） ========== */
-.banner {
-  width: 100%;
-  height: var(--banner-height);
-  background: url("banner.jpg") no-repeat center center / cover;
-  margin-bottom: 2rem;
 }
 
 /* ========== 6) 輪播（Carousel） ========== */
