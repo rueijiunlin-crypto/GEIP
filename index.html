@@ -150,10 +150,29 @@
     </button>
   </div>
 
+  <div class="container my-5">
+    <h2 class="text-center mb-4">最新公告</h2>
+    <ul class="list-group" id="latest-news"></ul>
+    <div class="text-center mt-3">
+      <a href="news.html" class="btn btn-primary">查看更多公告</a>
+    </div>
+  </div>
 
+  <script>
+  fetch('assets/data/news.json')
+    .then(response => response.json())
+    .then(data => {
+      let newsList = document.getElementById('latest-news');
+      data.slice(0, 5).forEach(item => {
+        let li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.innerHTML = `<strong>[${item.date}]</strong> <a href="${item.link}">${item.title}</a>`;
+        newsList.appendChild(li);
+      });
+    })
+    .catch(error => console.error('載入最新消息失敗:', error));
+  </script>
 
-
-  
 
   <!-- 頁尾 -->
   <footer class="footer">
