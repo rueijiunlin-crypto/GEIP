@@ -176,3 +176,10 @@ a:hover {
   .navbar-brand { font-size: 1.6rem; }
   .carousel-inner img { height: 240px; }
 }
+
+/* 特色影片區塊外觀（可選） */
+.video-hero { background: #000; }
+
+/* 開聲音按鈕在影片正中央（已在 HTML 用 position-absolute） */
+#unmuteBtn { opacity: .92; }
+#unmuteBtn.d-none { display: none !important; }
