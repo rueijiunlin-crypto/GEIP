@@ -54,7 +54,7 @@ body {
 
 .navbar-brand {
   color: var(--white) !important;
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 700;
   display: flex;
   align-items: center;
