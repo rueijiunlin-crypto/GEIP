@@ -168,7 +168,7 @@ a:hover {
   .carousel-inner img { height: var(--carousel-h-md); }
 }
   .carousel-inner img { height: var(--carousel-h-md); }
-}
+
 
 @media (max-width: 767px) {      /* 手機 */
   .navbar-brand { font-size: 20px; }
@@ -177,7 +177,7 @@ a:hover {
   .carousel-inner img { height: var(--carousel-h-sm); }
 }
   .carousel-inner img { height: var(--carousel-h-sm); }
-}
+
 
 /* ========== 12) 行動版滿版 Offcanvas 導覽（手機專用） ========== */
 /* 讓手機/平板的側邊導覽是滿版、清楚、好點 */
