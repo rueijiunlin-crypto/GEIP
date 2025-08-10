@@ -1,0 +1,28 @@
+{
+  "featuredVideo": {
+    "src": "assets/videos/promo.mp4",
+    "poster": "assets/videos/promo.jpg",
+    "title": "綠色工程產學實習導覽影片",
+    "description": "介紹計畫內容與特色單元"
+  },
+  "relatedVideos": [
+    {
+      "title": "【YT】綠色工程導覽影片",
+      "description": "YouTube · 點我前往觀看",
+      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+      "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      "title": "【YT】實習成果精選",
+      "description": "YouTube · 點我前往觀看",
+      "thumbnail": "https://img.youtube.com/vi/5qap5aO4i9A/hqdefault.jpg",
+      "link": "https://youtu.be/5qap5aO4i9A"
+    },
+    {
+      "title": "【YT】官方頻道",
+      "description": "訂閱我們獲取最新單元影片",
+      "thumbnail": "images/yt-channel-placeholder.jpg",
+      "link": "https://www.youtube.com/@YourChannel"
+    }
+  ]
+}

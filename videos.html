@@ -81,78 +81,84 @@
       </div>
     </div>
   </nav>
-
-  <!-- 特色單元影片：自動播放(靜音)＋循環＋可開聲音 -->
-  <section class="my-4">
-    <h2 class="mb-3">特色單元影片</h2>
-
-    <div class="video-hero position-relative rounded overflow-hidden">
-      <video id="featureVideo"
-             class="w-100 d-block"
-             src="assets/videos/promo.mp4"
-             poster="assets/videos/promo.jpg"
-            autoplay
-            muted
-             loop
-             playsinline
-             controls
-             preload="metadata">
-        您的瀏覽器不支援內嵌影片，請改用較新版本或下載檔案觀看。
-      </video>
-
-      <!-- 覆蓋在影片上的「開聲音」按鈕（首次互動） -->
-      <button id="unmuteBtn"
-              class="btn btn-light btn-lg shadow position-absolute top-50 start-50 translate-middle">
-       🔊 開聲音播放
-     </button>
-    </div>
+  
+  <section class="my-4" id="featured-video-section">
+    <!-- 主影片會用 JS 動態載入 -->
   </section>
 
-  <!-- 底下加幾個外部平台連結卡（YouTube 等） -->
   <section class="my-5">
     <h3 class="mb-3">延伸觀看</h3>
-    <div class="row g-3">
-      <div class="col-12 col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-           target="_blank" rel="noopener noreferrer">
-         <div class="card h-100">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="card-img-top" alt="YouTube 影片">
-            <div class="card-body">
-              <h5 class="card-title">【YT】綠色工程導覽影片</h5>
-             <p class="card-text text-muted mb-0">YouTube · 點我前往觀看</p>
-           </div>
-          </div>
-       </a>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="https://youtu.be/5qap5aO4i9A"
-           target="_blank" rel="noopener noreferrer">
-          <div class="card h-100">
-           <img src="https://img.youtube.com/vi/5qap5aO4i9A/hqdefault.jpg" class="card-img-top" alt="YouTube 影片">
-            <div class="card-body">
-              <h5 class="card-title">【YT】實習成果精選</h5>
-              <p class="card-text text-muted mb-0">YouTube · 點我前往觀看</p>
-           </div>
-          </div>
-       </a>
-      </div>
-
-     <div class="col-12 col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="https://www.youtube.com/@YourChannel"
-           target="_blank" rel="noopener noreferrer">
-          <div class="card h-100">
-            <img src="images/yt-channel-placeholder.jpg" class="card-img-top" alt="官方頻道">
-            <div class="card-body">
-              <h5 class="card-title">【YT】官方頻道</h5>
-              <p class="card-text text-muted mb-0">訂閱我們獲取最新單元影片</p>
-            </div>
-          </div>
-       </a>
-      </div>
+    <div class="row g-3" id="related-videos-container">
+     <!-- 延伸影片卡片會用 JS 動態載入 -->
     </div>
   </section>
 
+  <script>
+  (async function(){
+    const res = await fetch('assets/data/videos.json');
+    const data = await res.json();
+
+    // ===== 主影片 =====
+   const featuredSection = document.getElementById('featured-video-section');
+    const fv = data.featuredVideo;
+    featuredSection.innerHTML = `
+     <h2 class="mb-3">${fv.title}</h2>
+     <div class="video-hero position-relative rounded overflow-hidden">
+        <video id="featureVideo" class="w-100 d-block"
+          src="${fv.src}" poster="${fv.poster}"
+          autoplay muted loop playsinline controls preload="metadata">
+          您的瀏覽器不支援內嵌影片
+       </video>
+        <button id="unmuteBtn"
+          class="btn btn-light btn-lg shadow position-absolute top-50 start-50 translate-middle d-none">
+          🔊 開聲音播放
+       </button>
+      </div>
+      <p class="mt-2 text-muted">${fv.description}</p>
+   `;
+
+    // ===== 延伸觀看 =====
+    const relatedContainer = document.getElementById('related-videos-container'); 
+    relatedContainer.innerHTML = data.relatedVideos.map(v => `
+      <div class="col-12 col-md-6 col-lg-4">
+        <a class="text-decoration-none" href="${v.link}" target="_blank" rel="noopener noreferrer">
+          <div class="card h-100">
+            <img src="${v.thumbnail}" class="card-img-top" alt="${v.title}">
+            <div class="card-body">
+             <h5 class="card-title">${v.title}</h5>
+              <p class="card-text text-muted mb-0">${v.description}</p>
+           </div>
+          </div>
+        </a>
+      </div>
+   `).join('');
+
+    // ===== 開聲音邏輯 =====
+   const video = document.getElementById('featureVideo');
+   const unmuteBtn = document.getElementById('unmuteBtn');
+   const KEY = 'video_sound_preference';
+   const pref = localStorage.getItem(KEY);
+
+    if (pref === 'unmuted') {
+      video.muted = false;
+      video.play().catch(()=>unmuteBtn.classList.remove('d-none'));
+    }
+   if (!pref) unmuteBtn.classList.remove('d-none');
+
+   unmuteBtn.addEventListener('click', () => {
+      video.muted = false;
+      video.play().finally(() => {
+        localStorage.setItem(KEY, 'unmuted');
+        unmuteBtn.classList.add('d-none');
+      });
+   });
+
+    video.addEventListener('volumechange', () => {
+      localStorage.setItem(KEY, video.muted ? 'muted' : 'unmuted');
+   });
+
+  })();
+  </script>
 
   <footer class="footer">
     <div class="container">
