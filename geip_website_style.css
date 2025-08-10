@@ -54,7 +54,7 @@ body {
 
 .navbar-brand {
   color: var(--white) !important;
-  font-size: 5rem;
+  font-size: 28px; /* 品牌名稱字體大小 */
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@ body {
 .navbar-nav > li > a,
 .navbar .nav-link {
   color: var(--white) !important;
-  font-size: 3rem;
+  font-size: 18px; /* 導覽列項目字體大小 */
   line-height: var(--navbar-height);    /* ✅ 和導覽高度一致，達成垂直置中 */
   padding-top: 0;
   padding-bottom: 0;
@@ -162,12 +162,20 @@ a:hover {
 
 /* ========== 11) RWD 響應：平板 / 手機調整 ========== */
 @media (max-width: 991px) {      /* 平板與小筆電 */
-  .navbar-brand { font-size: 1.8rem; }
+  .navbar-brand { font-size: 22px; }
+  .navbar-nav > li > a,
+  .navbar .nav-link { font-size: 16px; }
+  .carousel-inner img { height: var(--carousel-h-md); }
+}
   .carousel-inner img { height: var(--carousel-h-md); }
 }
 
 @media (max-width: 767px) {      /* 手機 */
-  .navbar-brand { font-size: 1.6rem; }
+  .navbar-brand { font-size: 20px; }
+  .navbar-nav > li > a,
+  .navbar .nav-link { font-size: 15px; }
+  .carousel-inner img { height: var(--carousel-h-sm); }
+}
   .carousel-inner img { height: var(--carousel-h-sm); }
 }
 
