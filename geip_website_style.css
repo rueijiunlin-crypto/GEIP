@@ -1,145 +1,178 @@
-/* geip_website_style.css */
+/* ==========================================================================
+   GEIP 網站主樣式（精簡自用版）
+   說明：
+   - 僅保留你目前 HTML 有用到的樣式（Navbar / Dropdown / Banner / Carousel / Footer）
+   - 完整整合「頁腳貼底」與「導覽列固定高度」兩個需求
+   - 各段落有詳細註解，之後維護或擴充都好上手
+   ========================================================================== */
 
+/* ========== 0) 全域變數：顏色集中管理（之後改色只要改這裡） ========== */
+:root {
+  --brand-green-900: #004d40;   /* 深綠：導覽列、頁腳底色 */
+  --brand-green-700: #00695c;   /* 中綠：標題、主要文字 */
+  --brand-green-100: #e0f2f1;   /* 淺綠：hover 背景 */
+  --text-dark:       #1f2937;   /* 深灰：輔助文字 */
+  --page-bg:         #f8f9fa;   /* 頁面背景（近白） */
+}
+
+/* ========== 1) 讓 Flex 能正確計算全頁高度（貼底關鍵條件） ========== */
+html, body {
+  height: 100%;   /* 沒這行 flex 佈局不知道「整頁的高度」是多少 */
+  margin: 0;      /* 移除瀏覽器預設邊界，避免出現細縫 */
+}
+
+/* ========== 2) 全站排版 & Flex 佈局（讓 footer 能被推到底） ========== */
 body {
-  font-family: "Noto Sans TC", sans-serif;
-  background-color: #f8f9fa;
-  color: #00695c;
+  font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--brand-green-700);
   line-height: 1.6;
-  min-height: 100vh;
+
+  /* 讓頁面由上到下堆疊：Navbar → 主內容 → Footer */
   display: flex;
   flex-direction: column;
+  min-height: 100vh;   /* 至少等於視窗高，內容不足時能貼底 */
 }
 
+/* ========== 3) 導覽列（Navbar） ========== */
+/* 目的：固定高度、所有頁外觀一致；內容垂直置中 */
 .navbar {
-  background-color: #004d40;
-  padding: 2rem 3rem;
+  background-color: var(--brand-green-900);
+  height: 80px;                 /* ✅ 固定導覽列高度（可依需求改 72/88） */
+  padding: 0 20px;              /* 左右留白 */
+  display: flex;
+  align-items: center;          /* 讓內部元素垂直置中 */
 }
 
+/* 左上品牌（Logo + 文字） */
 .navbar-brand {
-  color: #ffffff !important;
-  font-size: 2rem !important;
-  font-weight: bold;
+  color: #fff !important;
+  font-size: 2rem;              /* 品牌字體大小，會跟著高度一起感覺一致 */
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 12px;                    /* Logo 與文字距離 */
 }
 
+/* Logo 高度建議略小於 Navbar 高度，保留呼吸空間 */
 .navbar-brand img {
-  height: 50px;
+  height: 52px;                 /* ✅ 你可以改 48 / 56 視覺看起來舒服為主 */
   width: auto;
 }
 
-.nav-link {
-  color: #ffffff !important;
-  font-size: 1.3rem !important;
+/* Navbar 內的連結統一垂直置中（配合固定高度） */
+.navbar-nav > li > a,
+.navbar .nav-link {
+  color: #fff !important;
+  font-size: 1rem;
+  line-height: 80px;            /* ✅ 和 Navbar 高度一致，達成垂直置中 */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.dropdown-item {
-  color: #00695c !important;
-  padding: 0.75rem 1.5rem !important;
-  transition: background-color 0.2s ease;
-  background-color: #ffffff;
-  font-size: 1.3rem !important;
-}
+/* 行動版漢堡按鈕不吃 line-height，維持 Bootstrap 既有行為即可 */
 
+/* ========== 4) 下拉選單（Dropdown） ========== */
+/* 需求：滑過展開、淺綠 hover；用 Bootstrap 結構，補上外觀 */
 .nav-item.dropdown:hover .dropdown-menu {
-  display: block;
+  display: block;               /* 滑過即展開 */
   margin-top: 0;
   border-radius: 0;
 }
 
 .dropdown-menu {
-  display: none;
-  opacity: 1;
-  visibility: visible;
-  position: absolute;
-  background-color: #ffffff;
-  border: none;
+  display: none;                /* 預設隱藏，避免版面跳動 */
+  background-color: #fff;
+  border: none;                 /* 乾淨扁平外觀 */
   padding: 0;
-  z-index: 1000;
+  z-index: 1000;                /* 蓋過內容 */
 }
 
+.dropdown-item {
+  color: var(--brand-green-700) !important;
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  transition: background-color .2s ease;
+}
 .dropdown-item:hover {
-  background-color: #e0f2f1;
-  color: #004d40;
+  background-color: var(--brand-green-100);
+  color: var(--brand-green-900);
 }
 
-.banner {
-  width: 100%;
-  height: 300px;
-  background: url("banner.jpg") no-repeat center center;
-  background-size: cover;
-  margin-bottom: 2rem;
-}
-
-.container {
-  flex: 1;
+/* ========== 5) 主內容容器（貼底關鍵設定） ========== */
+/* 目的：只讓「body 的直層主內容」去撑開高度，避免誤傷 footer 裡的 .container */
+body > .container {
+  flex: 1;                      /* ✅ 撐開主內容 → Footer 被推到底 */
+  max-width: 1140px;            /* 與 Bootstrap 容器寬一致 */
   padding-top: 2rem;
   padding-bottom: 2rem;
-  max-width: 1140px;
   margin: 0 auto;
 }
 
-.footer {
-  background-color: #004d40;
-  color: #ffffff;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: auto;
-  height: 100px;
+/* ========== 6) Banner（首頁橫幅，如果有用） ========== */
+/* 需求：固定高度、滿版置中 */
+.banner {
+  width: 100%;
+  height: 300px;                /* 可改 280/320 視覺需求 */
+  background: url("banner.jpg") no-repeat center center / cover;
+  margin-bottom: 2rem;
 }
 
-h1, h2, h3 {
-  color: #00695c;
-}
-
-a {
-  color: #00796b;
-}
-
-a:hover {
-  color: #004d40;
-  text-decoration: none;
-}
-
-.card {
-  border: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
+/* ========== 7) 輪播（Carousel） ========== */
+/* 需求：圖片固定高度、裁切填滿（object-fit） */
 .carousel {
   margin-bottom: 2rem;
 }
 
+/* Bootstrap 的 .carousel-inner img 會佔滿寬度，這裡補高度與裁切 */
 .carousel-inner img {
-  height: 1200px;              /* ✅ 固定高度 */
-  object-fit: cover;          /* ✅ 保持比例並填滿區塊 */
+  height: 420px;                /* ✅ 桌機高度；可改 360/480 */
   width: 100%;
-}
-/* ===== 固定導覽列高度與對齊 ===== */
-.navbar {
-  height: 85px;
-  min-height: 85px;
-  max-height: 85px;
-  padding-top: 0;
-  padding-bottom: 0;
-  display: flex;
-  align-items: center;
+  object-fit: cover;            /* 保持比例，裁切填滿框 */
 }
 
-.navbar .navbar-nav .nav-link {
-  line-height: 85px;
-  padding-top: 0;
-  padding-bottom: 0;
+/* 指示點（小圓點）與左右箭頭沿用 Bootstrap 樣式即可，如需調整可再加 */
+
+/* ========== 8) 頁腳（Footer） ========== */
+/* 需求：顏色一致、置中、永遠在頁面最底（由 flex 推到底） */
+.footer {
+  background-color: var(--brand-green-900);
+  color: #fff;
+  text-align: center;
+  padding: 14px 0;
+  margin-top: auto;             /* ✅ Flex 關鍵：把 footer 推到底 */
 }
 
-.navbar-brand img {
-  max-height: 85px;
-  margin-top: 0;
-  margin-bottom: 0;
+/* ========== 9) 一般文字與連結 ========== */
+h1, h2, h3 {
+  color: var(--brand-green-700);
+}
+
+a {
+  color: #00796b;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--brand-green-900);
+}
+
+/* ========== 10) 卡片（如有用到 Bootstrap .card） ========== */
+.card {
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  transition: transform .2s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ========== 11) RWD 響應：平板 / 手機調整 ========== */
+@media (max-width: 991px) {      /* 平板與小筆電 */
+  .navbar-brand { font-size: 1.8rem; }
+  .carousel-inner img { height: 320px; }
+}
+
+@media (max-width: 767px) {      /* 手機 */
+  .navbar-brand { font-size: 1.6rem; }
+  .carousel-inner img { height: 240px; }
 }
