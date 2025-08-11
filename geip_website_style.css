@@ -296,3 +296,28 @@ a:hover {
   .faculty-horizontal .avatar { width: 84px; height: 84px; flex-basis: 84px; }
   .faculty-horizontal a { padding: 14px 18px; gap: 18px; }
 }
+
+/* 師資介紹主標題 */
+h1 {
+  font-size: 36px;  /* 放大標題字體 */
+  font-weight: bold;
+}
+
+/* 師資條列字體大小調整 */
+.faculty-horizontal .name {
+  font-size: 20px;    /* 姓名字體 */
+}
+
+.faculty-horizontal .dept {
+  font-size: 18px;    /* 系所字體 */
+}
+
+.faculty-horizontal .title {
+  font-size: 18px;    /* 職稱字體 */
+}
+
+/* 師資區塊小標題 */
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
