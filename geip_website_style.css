@@ -236,8 +236,9 @@ a:hover {
   z-index: 1020; 
 }
 */
-/* === Search box (desktop) === */
-.search-box input.form-control { width: 220px; }
-@media (min-width: 1400px) {
-  .search-box input.form-control { width: 280px; }
+/* 搜尋結果片段高亮 */
+.search-hit mark {
+  background: #fff3cd;      /* 淡黃 */
+  padding: 0 2px;
+  border-radius: 2px;
 }

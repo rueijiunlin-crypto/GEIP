@@ -1,9 +1,9 @@
-<!-- partials/navbar.html (with centered nav + site search) -->
+<!-- partials/navbar.html (centered nav + desktop search + mobile offcanvas + search results modal) -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <!-- 左：品牌 -->
     <a class="navbar-brand" href="index.html">
-      <img src="image/logo.png" alt="logo"> 綠色工程學程
+      <img src="logo.png" alt="logo"> 綠色工程學程
     </a>
 
     <!-- 手機/平板：開啟側邊導覽 -->
@@ -100,7 +100,7 @@
 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mobileNavLabel">
-      <img src="image/logo.png" alt="" style="height:28px"> 綠色工程學程
+      <img src="logo.png" alt="" style="height:28px"> 綠色工程學程
     </h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="關閉"></button>
   </div>
@@ -202,6 +202,9 @@
   </div>
 </div>
 
+<!-- 🔹 載入站內搜尋 JS（你已另存 js/site_search.js） -->
+<script src="js/site_search.js" defer></script>
+
 <script>
   // 手機：點了 offcanvas 裡的連結就自動收起
   document.addEventListener('click', function (e) {
@@ -211,59 +214,4 @@
     const inst = window.bootstrap?.Offcanvas.getInstance(el);
     inst && inst.hide();
   });
-
-  // ===== 站內搜尋（純前端、比對 search_index.json 的 title/keywords） =====
-  (function () {
-    const INDEX_URL = 'js/search_index.json'; // 放在網站根目錄
-    let indexData = [];
-    fetch(INDEX_URL).then(r => r.json()).then(d => { indexData = d; });
-
-    const formDesktop = document.getElementById('siteSearchForm');
-    const inputDesktop = document.getElementById('siteSearchInput');
-    const formMobile  = document.getElementById('siteSearchFormMobile');
-    const inputMobile = document.getElementById('siteSearchInputMobile');
-
-    const modalEl = document.getElementById('searchResultsModal');
-    const modalBody = document.getElementById('searchResultsBody');
-
-    function openResults(results, q) {
-      if (!modalEl) return;
-      let html = '';
-      if (!results.length) {
-        html = `<p class="text-muted mb-0">找不到與「<strong>${q}</strong>」相關的內容。</p>`;
-      } else {
-        html = `<p class="text-muted">共 ${results.length} 筆結果：</p><div class="list-group">` +
-          results.map(it => `
-            <a href="${it.url}" class="list-group-item list-group-item-action">
-              <div class="fw-bold">${it.title}</div>
-              <small class="text-muted">${it.keywords || ''}</small>
-            </a>
-          `).join('') +
-          `</div>`;
-      }
-      modalBody.innerHTML = html;
-      const m = new bootstrap.Modal(modalEl);
-      m.show();
-    }
-
-    function doSearch(q) {
-      q = (q || '').trim();
-      if (!q || !indexData.length) return;
-      const lc = q.toLowerCase();
-      const res = indexData.filter(it =>
-        (it.title && it.title.toLowerCase().includes(lc)) ||
-        (it.keywords && it.keywords.toLowerCase().includes(lc))
-      );
-      openResults(res, q);
-    }
-
-    formDesktop && formDesktop.addEventListener('submit', function (e) {
-      e.preventDefault();
-      doSearch(inputDesktop.value);
-    });
-    formMobile && formMobile.addEventListener('submit', function (e) {
-      e.preventDefault();
-      doSearch(inputMobile.value);
-    });
-  })();
 </script>
