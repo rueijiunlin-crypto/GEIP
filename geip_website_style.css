@@ -317,3 +317,76 @@ a:hover {
   font-size: 18px;    /* 職稱字體 */
 }
 
+/* ========== 14) 修課規範頁面樣式 ========== */
+/* 標籤頁自定義樣式 */
+.nav-tabs .nav-link {
+  color: var(--brand-green-700);
+  font-weight: 500;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--brand-green-900);
+  border-bottom-color: var(--brand-green-900);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--brand-green-900);
+  border-bottom-color: var(--brand-green-900);
+  background-color: transparent;
+}
+
+/* 課程卡片樣式 */
+.course-card {
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: var(--white);
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.12);
+}
+
+/* 課程類型標籤 */
+.course-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.course-type.required {
+  background-color: #dc3545;
+  color: white;
+}
+
+.course-type.elective {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* 學分數樣式 */
+.credits {
+  color: var(--brand-green-700);
+  font-weight: 600;
+}
+
+/* 證書資訊區塊 */
+.certificate-info {
+  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
+  color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
