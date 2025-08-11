@@ -299,7 +299,7 @@ a:hover {
 
 /* 師資介紹主標題 */
 h1 {
-  font-size: 36px;  /* 放大標題字體 */
+  font-size: 36px !important;  /* 放大標題字體 */
   font-weight: bold;
 }
 
