@@ -1,9 +1,9 @@
-
-<!-- partials/navbar.html -->
+<!-- partials/navbar.html (with centered nav + site search) -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
+    <!-- 左：品牌 -->
     <a class="navbar-brand" href="index.html">
-      <img src="image\logo.png" alt="logo"> 綠色工程學程
+      <img src="image/logo.png" alt="logo"> 綠色工程學程
     </a>
 
     <!-- 手機/平板：開啟側邊導覽 -->
@@ -13,9 +13,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- 桌機：原本的導覽列（只在 >= lg 顯示） -->
-    <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
-      <ul class="navbar-nav">
+    <!-- 桌機：導覽置中 + 右側搜尋 -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- ✅ 導覽置中 -->
+      <ul class="navbar-nav mx-auto">
         <!-- 計畫簡介 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">計畫簡介</a>
@@ -26,7 +27,7 @@
           </ul>
         </li>
 
-        <!-- 訊息公告（下拉選單） -->
+        <!-- 訊息公告 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">訊息公告</a>
           <ul class="dropdown-menu">
@@ -85,6 +86,12 @@
           </ul>
         </li>
       </ul>
+
+      <!-- ✅ 桌機：右側搜尋 -->
+      <form class="d-none d-lg-flex search-box" id="siteSearchForm" role="search">
+        <input class="form-control form-control-sm" id="siteSearchInput" type="search" placeholder="站內搜尋…" aria-label="站內搜尋">
+        <button class="btn btn-light btn-sm ms-2" type="submit">搜尋</button>
+      </form>
     </div>
   </div>
 </nav>
@@ -98,7 +105,13 @@
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="關閉"></button>
   </div>
 
-  <div class="offcanvas-body p-0">
+  <div class="offcanvas-body">
+    <!-- ✅ 行動版搜尋 -->
+    <form class="input-group mb-3" id="siteSearchFormMobile" role="search">
+      <input class="form-control" id="siteSearchInputMobile" type="search" placeholder="站內搜尋…" aria-label="站內搜尋">
+      <button class="btn btn-light" type="submit">搜尋</button>
+    </form>
+
     <div class="list-group list-group-flush">
       <a class="list-group-item list-group-item-action list-group-item-dark" href="index.html">首頁</a>
 
@@ -112,15 +125,13 @@
         <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="faculty.html">師資介紹</a>
       </div>
 
-      <!-- 訊息公告（手風琴） -->
       <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
-              data-bs-toggle="collapse" data-bs-target="#m-news" aria-expanded="false">
+              data-bs-toggle="collapse" data-bs-target="#m-news">
         訊息公告 <span class="ms-2">▾</span>
       </button>
       <div id="m-news" class="collapse">
         <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="news.html">最新消息</a>
       </div>
-
 
       <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
               data-bs-toggle="collapse" data-bs-target="#m-info">
@@ -176,6 +187,21 @@
   </div>
 </div>
 
+<!-- 🔎 搜尋結果 Modal -->
+<div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchResultsLabel">搜尋結果</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+      </div>
+      <div class="modal-body" id="searchResultsBody">
+        <!-- 結果由 JS 注入 -->
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   // 手機：點了 offcanvas 裡的連結就自動收起
   document.addEventListener('click', function (e) {
@@ -185,4 +211,59 @@
     const inst = window.bootstrap?.Offcanvas.getInstance(el);
     inst && inst.hide();
   });
+
+  // ===== 站內搜尋（純前端、比對 search_index.json 的 title/keywords） =====
+  (function () {
+    const INDEX_URL = 'js/search_index.json'; // 放在網站根目錄
+    let indexData = [];
+    fetch(INDEX_URL).then(r => r.json()).then(d => { indexData = d; });
+
+    const formDesktop = document.getElementById('siteSearchForm');
+    const inputDesktop = document.getElementById('siteSearchInput');
+    const formMobile  = document.getElementById('siteSearchFormMobile');
+    const inputMobile = document.getElementById('siteSearchInputMobile');
+
+    const modalEl = document.getElementById('searchResultsModal');
+    const modalBody = document.getElementById('searchResultsBody');
+
+    function openResults(results, q) {
+      if (!modalEl) return;
+      let html = '';
+      if (!results.length) {
+        html = `<p class="text-muted mb-0">找不到與「<strong>${q}</strong>」相關的內容。</p>`;
+      } else {
+        html = `<p class="text-muted">共 ${results.length} 筆結果：</p><div class="list-group">` +
+          results.map(it => `
+            <a href="${it.url}" class="list-group-item list-group-item-action">
+              <div class="fw-bold">${it.title}</div>
+              <small class="text-muted">${it.keywords || ''}</small>
+            </a>
+          `).join('') +
+          `</div>`;
+      }
+      modalBody.innerHTML = html;
+      const m = new bootstrap.Modal(modalEl);
+      m.show();
+    }
+
+    function doSearch(q) {
+      q = (q || '').trim();
+      if (!q || !indexData.length) return;
+      const lc = q.toLowerCase();
+      const res = indexData.filter(it =>
+        (it.title && it.title.toLowerCase().includes(lc)) ||
+        (it.keywords && it.keywords.toLowerCase().includes(lc))
+      );
+      openResults(res, q);
+    }
+
+    formDesktop && formDesktop.addEventListener('submit', function (e) {
+      e.preventDefault();
+      doSearch(inputDesktop.value);
+    });
+    formMobile && formMobile.addEventListener('submit', function (e) {
+      e.preventDefault();
+      doSearch(inputMobile.value);
+    });
+  })();
 </script>

@@ -1,0 +1,23 @@
+[
+  { "url": "index.html",               "title": "首頁",             "keywords": "綠色工程 產學 共育 實習 學程 首頁 最新消息 輪播" },
+  { "url": "origin.html",              "title": "計畫緣起",         "keywords": "計畫 簡介 緣起 背景 目的" },
+  { "url": "goal.html",                "title": "計畫目標",         "keywords": "計畫 目標 指標 里程碑" },
+  { "url": "faculty.html",             "title": "師資介紹",         "keywords": "師資 教師 老師 研究 專長" },
+  { "url": "news.html",                "title": "最新消息",         "keywords": "公告 新聞 活動 更新" },
+  { "url": "rules.html",               "title": "修課規範",         "keywords": "學程 規範 修課 必修 選修" },
+  { "url": "curriculum.html",          "title": "課程規劃表",       "keywords": "課程 規劃 表 必修 選修 課表" },
+  { "url": "apply.html",               "title": "申請流程與表單",   "keywords": "申請 流程 表單 下載 報名" },
+  { "url": "certificate.html",         "title": "學程證書說明",     "keywords": "學程 證書 說明 畢業" },
+  { "url": "cross_discipline.html",    "title": "跨領域實務專題",   "keywords": "跨領域 專題 實務 產學" },
+  { "url": "partners.html",            "title": "合作企業",         "keywords": "合作 企業 夥伴 業界" },
+  { "url": "project_showcase.html",    "title": "專題成果展示",     "keywords": "專題 成果 展示 海報" },
+  { "url": "internship_rules.html",    "title": "實習修課規定",     "keywords": "實習 規定 修課" },
+  { "url": "internship_partners.html", "title": "實習合作企業",     "keywords": "實習 企業 合作" },
+  { "url": "intern_experience.html",   "title": "實習經驗分享",     "keywords": "實習 經驗 分享 心得" },
+  { "url": "videos.html",              "title": "特色單元影片",     "keywords": "影片 多媒體 教學 特色" },
+  { "url": "materials.html",           "title": "課程教材下載區",   "keywords": "教材 下載 講義" },
+  { "url": "contact.html",             "title": "聯絡我們",         "keywords": "聯絡 email 電話 位置" },
+  { "url": "faq.html",                 "title": "常見問答",         "keywords": "FAQ 問答 問題" },
+  { "url": "links.html",               "title": "相關網站",         "keywords": "連結 相關 網站" },
+  { "url": "gallery.html",             "title": "活動花絮",         "keywords": "活動 花絮 照片" }
+]

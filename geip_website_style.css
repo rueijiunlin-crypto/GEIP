@@ -236,3 +236,8 @@ a:hover {
   z-index: 1020; 
 }
 */
+/* === Search box (desktop) === */
+.search-box input.form-control { width: 220px; }
+@media (min-width: 1400px) {
+  .search-box input.form-control { width: 280px; }
+}
