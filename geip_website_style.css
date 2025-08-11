@@ -239,8 +239,8 @@ a:hover {
 /* 搜尋結果片段高亮 */
 .search-hit mark {
   background: #fff3cd;      /* 淡黃 */
-  padding: 0 2px;
-  border-radius: 2px;
+  padding: 0px 2px;
+  border-radius: 1px;
 }
 
 /* ====== 師資：橫向條列式（含頭像 & 無頭像版本） ====== */
@@ -298,9 +298,10 @@ a:hover {
 }
 
 /* 師資介紹主標題 */
-h1 {
-  font-size: 36px !important;  /* 放大標題字體 */
-  font-weight: bold;
+.section-title__text {
+  font-size: 36px !important;
+  font-weight: 800;
+  letter-spacing: .5px;
 }
 
 /* 師資條列字體大小調整 */
@@ -316,8 +317,3 @@ h1 {
   font-size: 18px;    /* 職稱字體 */
 }
 
-/* 師資區塊小標題 */
-h3 {
-  font-size: 24px;
-  font-weight: bold;
-}
