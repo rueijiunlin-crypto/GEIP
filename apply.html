@@ -15,37 +15,111 @@
   <!-- 導覽列 -->
   <div data-include="partials/navbar.html"></div>
 
-  <div class="container">
-    <h1>申請流程與表單</h1>
-    <p>這是「申請流程與表單」的內容頁面，請填入內容。</p>
-    
-    <!-- 申請流程圖片 -->
-    <div class="row mt-4 mb-4">
-      <div class="col-md-6">
-        <img src="image/slide2.jpg" alt="申請流程示意圖" class="img-fluid rounded shadow" style="width: 200%; height: auto;">
-        <p class="text-center mt-2 text-muted">申請流程示意圖</p>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="mb-5 fw-bold">申請流程與表單</h1>
         
-        <!-- 表單下載列表 -->
-        <div class="mt-4">
-          <h4>表單下載</h4>
-          <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              綠色工程產業學分學程
-              <a href="https://reurl.cc/oYroaj" class="btn btn-primary btn-sm">下載</a>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              綠色工程微學程
-              <a href="https://reurl.cc/Nx4mVx" class="btn btn-primary btn-sm">下載</a>
-            </li>
-          </ul>
+        <!-- 申請流程步驟 -->
+        <div class="application-steps">
+          <h2 class="mb-4 text-success">申請流程</h2>
+          <div id="stepsContainer">
+            <!-- 步驟內容將由 JavaScript 動態載入 -->
+          </div>
+        </div>
+        
+        <!-- 下載區塊 -->
+        <div class="download-section">
+          <h3>📥 下載申請表單</h3>
+          <div class="download-cards" id="downloadsContainer">
+            <!-- 下載卡片將由 JavaScript 動態載入 -->
+          </div>
+          <div class="text-center">
+            <p class="text-muted mb-0">
+              <small>※ 請根據您要申請的學程選擇對應的表單下載</small>
+            </p>
+          </div>
+        </div>
+        
+        <div class="text-center mt-5">
+          <a href="index.html" class="btn btn-outline-success">← 回首頁</a>
         </div>
       </div>
     </div>
-    
-    <p><a href="index.html">← 回首頁</a></p>
   </div>
 
   <div data-include="partials/footer.html"></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // 載入申請流程資料
+    async function loadApplicationData() {
+      try {
+        const response = await fetch('assets/data/apply.json');
+        const data = await response.json();
+        
+        // 渲染申請步驟
+        renderSteps(data.steps);
+        
+        // 渲染下載區塊
+        renderDownloads(data.downloads);
+        
+      } catch (error) {
+        console.error('載入資料失敗:', error);
+        // 如果載入失敗，顯示預設內容
+        showDefaultContent();
+      }
+    }
+    
+    // 渲染申請步驟
+    function renderSteps(steps) {
+      const container = document.getElementById('stepsContainer');
+      container.innerHTML = steps.map(step => `
+        <div class="step-item">
+          <div class="step-number">${step.number}</div>
+          <div class="step-content">
+            <div class="step-title">${step.title}</div>
+            <div class="step-description">${step.description}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    // 渲染下載區塊
+    function renderDownloads(downloads) {
+      const container = document.getElementById('downloadsContainer');
+      container.innerHTML = downloads.map(item => `
+        <div class="download-card">
+          <div class="file-icon">${item.icon}</div>
+          <div class="file-name">${item.name}</div>
+          <p class="text-muted mb-3">${item.description}</p>
+          <a href="${item.url}" class="download-btn" target="_blank" rel="noopener noreferrer">
+            下載表單
+          </a>
+        </div>
+      `).join('');
+    }
+    
+    // 顯示預設內容（當 JSON 載入失敗時）
+    function showDefaultContent() {
+      const stepsContainer = document.getElementById('stepsContainer');
+      const downloadsContainer = document.getElementById('downloadsContainer');
+      
+      stepsContainer.innerHTML = `
+        <div class="alert alert-info">
+          <p class="mb-0">申請流程說明正在載入中，請稍候...</p>
+        </div>
+      `;
+      
+      downloadsContainer.innerHTML = `
+        <div class="alert alert-warning">
+          <p class="mb-0">下載連結載入中，請稍候...</p>
+        </div>
+      `;
+    }
+    
+    // 頁面載入完成後執行
+    document.addEventListener('DOMContentLoaded', loadApplicationData);
+  </script>
 </body>
 </html>

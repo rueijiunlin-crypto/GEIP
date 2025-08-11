@@ -571,3 +571,153 @@ a:hover {
   color: #495057;
   font-size: 0.9em;
 }
+
+/* ========== 16) 申請流程與表單頁面樣式 ========== */
+/* 步驟流程樣式 */
+.application-steps {
+  margin-bottom: 3rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.step-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 50px;
+  width: 2px;
+  height: calc(100% - 30px);
+  background: linear-gradient(to bottom, var(--brand-green-500), var(--brand-green-100));
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+.step-content {
+  flex: 1;
+  padding-top: 0.5rem;
+}
+
+.step-title {
+  color: var(--brand-green-900);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.step-description {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* 下載區塊樣式 */
+.download-section {
+  background: linear-gradient(135deg, var(--brand-green-100), var(--white));
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.download-section h3 {
+  color: var(--brand-green-900);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.download-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.download-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.download-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  border-color: var(--brand-green-500);
+}
+
+.download-card .file-icon {
+  font-size: 3rem;
+  color: var(--brand-green-700);
+  margin-bottom: 1rem;
+}
+
+.download-card .file-name {
+  color: var(--brand-green-900);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.download-card .download-btn {
+  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.download-card .download-btn:hover {
+  background: linear-gradient(135deg, var(--brand-green-900), var(--brand-green-700));
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+/* 響應式調整 */
+@media (max-width: 767px) {
+  .step-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .step-item:not(:last-child)::after {
+    display: none;
+  }
+  
+  .step-number {
+    margin: 0 auto 1rem;
+  }
+  
+  .download-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .download-section {
+    padding: 1.5rem;
+  }
+}
