@@ -317,7 +317,7 @@ a:hover {
   font-size: 18px;    /* 職稱字體 */
 }
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 /* ========== 14) 修課規範頁面樣式 ========== */
 /* 標籤頁自定義樣式 */
 .nav-tabs .nav-link {
@@ -391,7 +391,7 @@ a:hover {
   margin-top: 20px;
 }
 
-=======
+/*=======*/
 /* ===== 計畫緣起：主圖置中 ===== */
 .origin-hero {
   margin: 16px auto 24px;
@@ -434,4 +434,131 @@ a:hover {
   .origin-hero { margin: 12px auto 18px; }
   .prose { font-size: 17px; }
 }
->>>>>>> b9640c801d23e00cc34a6af809af91a34b03c896
+/*>>>>>>> b9640c801d23e00cc34a6af809af91a34b03c896*/
+
+/* ========== 15) 課程規劃表響應式表格樣式 ========== */
+/* 表格基本樣式 */
+.curriculum-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  margin-bottom: 2rem;
+}
+
+.curriculum-table th {
+  background-color: var(--brand-green-900);
+  color: var(--white);
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.curriculum-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  vertical-align: middle;
+  text-align: center;
+}
+
+.curriculum-table tr:hover {
+  background-color: rgba(0,0,0,.02);
+}
+
+/* 課程類型標籤 */
+.curriculum-table .course-type {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.curriculum-table .course-type.required {
+  background-color: #dc3545;
+  color: white;
+}
+
+.curriculum-table .course-type.elective {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* 響應式表格 - 手機版轉換為卡片式 */
+@media (max-width: 767px) {
+  .curriculum-table {
+    display: block;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .curriculum-table thead {
+    display: none;
+  }
+  
+  .curriculum-table tbody {
+    display: block;
+  }
+  
+  .curriculum-table tr {
+    display: block;
+    background-color: var(--white);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    padding: 16px;
+  }
+  
+  .curriculum-table td {
+    display: block;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  
+  .curriculum-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .curriculum-table td::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: var(--brand-green-700);
+    display: inline-block;
+    width: 80px;
+    margin-right: 8px;
+  }
+  
+  .curriculum-table .course-type {
+    margin-bottom: 4px;
+  }
+}
+
+/* 課程名稱樣式 */
+.curriculum-table .course-name {
+  font-weight: 600;
+  color: var(--brand-green-900);
+}
+
+/* 學分數樣式 */
+.curriculum-table .credits {
+  color: var(--brand-green-700);
+  font-weight: 600;
+}
+
+/* 課號樣式 */
+.curriculum-table .course-code {
+  font-family: monospace;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+/* 開課單位樣式 */
+.curriculum-table .department {
+  color: #495057;
+  font-size: 0.9em;
+}
