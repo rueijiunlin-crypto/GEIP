@@ -573,60 +573,28 @@ a:hover {
 }
 
 /* ========== 16) 申請流程與表單頁面樣式 ========== */
-/* 步驟流程樣式 */
+/* 申請流程圖片樣式 */
 .application-steps {
   margin-bottom: 3rem;
 }
 
-.step-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-  position: relative;
+.process-image-container {
+  text-align: center;
+  margin: 2rem auto;
 }
 
-.step-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 25px;
-  top: 50px;
-  width: 2px;
-  height: calc(100% - 30px);
-  background: linear-gradient(to bottom, var(--brand-green-500), var(--brand-green-100));
+.process-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.step-number {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-right: 1.5rem;
-  flex-shrink: 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,.1);
-}
-
-.step-content {
-  flex: 1;
-  padding-top: 0.5rem;
-}
-
-.step-title {
-  color: var(--brand-green-900);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.step-description {
-  color: #6c757d;
-  line-height: 1.6;
-  margin-bottom: 0;
+.process-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
 }
 
 /* 下載區塊樣式 */
@@ -700,35 +668,12 @@ a:hover {
 
 /* 響應式調整 */
 @media (max-width: 767px) {
-  .step-item {
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 1.5rem;
+  .process-image-container {
+    margin: 1.5rem auto;
   }
   
-  .step-item:not(:last-child)::after {
-    display: none;
-  }
-  
-  .step-number {
-    margin: 0 auto 1rem;
-    width: 60px;
-    height: 60px;
-    font-size: 1.4rem;
-  }
-  
-  .step-content {
-    padding-top: 0;
-  }
-  
-  .step-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .step-description {
-    font-size: 1rem;
-    line-height: 1.7;
+  .process-image {
+    border-radius: 8px;
   }
   
   .download-cards {
@@ -751,21 +696,6 @@ a:hover {
 
 /* 平板版優化 */
 @media (min-width: 768px) and (max-width: 991px) {
-  .step-item {
-    margin-bottom: 1.75rem;
-  }
-  
-  .step-number {
-    width: 55px;
-    height: 55px;
-    font-size: 1.3rem;
-    margin-right: 1.25rem;
-  }
-  
-  .step-content {
-    padding-top: 0.25rem;
-  }
-  
   .download-cards {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.25rem;
