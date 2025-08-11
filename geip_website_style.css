@@ -518,6 +518,7 @@ a:hover {
     padding: 8px 0;
     border: none;
     border-bottom: 1px solid rgba(0,0,0,.06);
+    text-align: left;
   }
   
   .curriculum-table td:last-child {
@@ -535,6 +536,14 @@ a:hover {
   
   .curriculum-table .course-type {
     margin-bottom: 4px;
+  }
+}
+
+/* 平板版 - 文字靠左對齊 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .curriculum-table th,
+  .curriculum-table td {
+    text-align: left;
   }
 }
 
