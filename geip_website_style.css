@@ -317,3 +317,45 @@ a:hover {
   font-size: 18px;    /* 職稱字體 */
 }
 
+/* ===== 計畫緣起：主圖置中 ===== */
+.origin-hero {
+  margin: 16px auto 24px;
+  text-align: center;
+}
+.origin-hero img {
+  display: block;
+  max-width: 780px;   /* 主圖最大寬度（可依需求調整） */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+.origin-hero figcaption {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ===== 內文（好讀排版，沿用網站字體） ===== */
+.prose {
+  color: var(--brand-green-700);
+  font-size: 18px;        /* 內文字體大小 */
+  line-height: 1.9;       /* 行高 */
+}
+.prose h3 {
+  margin-top: 1.25rem;
+  color: var(--brand-green-900);
+  font-weight: 700;
+}
+.prose ul {
+  padding-left: 1.25rem;
+  margin: .5rem 0 1rem;
+}
+.prose li { margin: .25rem 0; }
+
+/* 手機微調：主圖留白縮小點、內文字距維持 */
+@media (max-width: 767px) {
+  .origin-hero { margin: 12px auto 18px; }
+  .prose { font-size: 17px; }
+}
