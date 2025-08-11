@@ -703,6 +703,7 @@ a:hover {
   .step-item {
     flex-direction: column;
     text-align: center;
+    margin-bottom: 1.5rem;
   }
   
   .step-item:not(:last-child)::after {
@@ -711,13 +712,62 @@ a:hover {
   
   .step-number {
     margin: 0 auto 1rem;
+    width: 60px;
+    height: 60px;
+    font-size: 1.4rem;
+  }
+  
+  .step-content {
+    padding-top: 0;
+  }
+  
+  .step-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .step-description {
+    font-size: 1rem;
+    line-height: 1.7;
   }
   
   .download-cards {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   .download-section {
     padding: 1.5rem;
+  }
+  
+  .download-card {
+    padding: 1.25rem;
+  }
+  
+  .download-card .file-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* 平板版優化 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .step-item {
+    margin-bottom: 1.75rem;
+  }
+  
+  .step-number {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+    margin-right: 1.25rem;
+  }
+  
+  .step-content {
+    padding-top: 0.25rem;
+  }
+  
+  .download-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
   }
 }
