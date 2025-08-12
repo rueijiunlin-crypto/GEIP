@@ -299,7 +299,7 @@ a:hover {
 
 /* 師資介紹主標題 */
 .section-title__text {
-  font-size: 36px !important;
+  font-size: 32px !important;
   font-weight: 800;
   letter-spacing: .5px;
 }
@@ -700,4 +700,11 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.25rem;
   }
+}
+
+/* ===== 計畫目標 ===== */
+.row.justify-content-center {
+  color: var(--brand-green-700);
+  font-size: 18px;        /* 內文字體大小 */
+  line-height: 1.9;       /* 行高 */
 }
