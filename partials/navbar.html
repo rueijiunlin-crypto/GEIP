@@ -1,9 +1,9 @@
-
-<!-- partials/navbar.html -->
+<!-- partials/navbar.html (centered nav + desktop search + mobile offcanvas + search results modal) -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
+    <!-- 左：品牌 -->
     <a class="navbar-brand" href="index.html">
-      <img src="image\logo.png" alt="logo"> 綠色工程學程
+      <img src="image/logo.png" alt="logo"> 綠色工程學程
     </a>
 
     <!-- 手機/平板：開啟側邊導覽 -->
@@ -13,9 +13,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- 桌機：原本的導覽列（只在 >= lg 顯示） -->
-    <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
-      <ul class="navbar-nav">
+    <!-- 桌機：導覽置中 + 右側搜尋 -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- ✅ 導覽置中 -->
+      <ul class="navbar-nav mx-auto">
         <!-- 計畫簡介 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">計畫簡介</a>
@@ -26,7 +27,7 @@
           </ul>
         </li>
 
-        <!-- 訊息公告（下拉選單） -->
+        <!-- 訊息公告 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">訊息公告</a>
           <ul class="dropdown-menu">
@@ -85,6 +86,12 @@
           </ul>
         </li>
       </ul>
+
+      <!-- ✅ 桌機：右側搜尋 -->
+      <form class="d-none d-lg-flex search-box" id="siteSearchForm" role="search">
+        <input class="form-control form-control-sm" id="siteSearchInput" type="search" placeholder="站內搜尋…" aria-label="站內搜尋">
+        <button class="btn btn-light btn-sm ms-2" type="submit">搜尋</button>
+      </form>
     </div>
   </div>
 </nav>
@@ -98,7 +105,13 @@
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="關閉"></button>
   </div>
 
-  <div class="offcanvas-body p-0">
+  <div class="offcanvas-body">
+    <!-- ✅ 行動版搜尋 -->
+    <form class="input-group mb-3" id="siteSearchFormMobile" role="search">
+      <input class="form-control" id="siteSearchInputMobile" type="search" placeholder="站內搜尋…" aria-label="站內搜尋">
+      <button class="btn btn-light" type="submit">搜尋</button>
+    </form>
+
     <div class="list-group list-group-flush">
       <a class="list-group-item list-group-item-action list-group-item-dark" href="index.html">首頁</a>
 
@@ -112,15 +125,13 @@
         <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="faculty.html">師資介紹</a>
       </div>
 
-      <!-- 訊息公告（手風琴） -->
       <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
-              data-bs-toggle="collapse" data-bs-target="#m-news" aria-expanded="false">
+              data-bs-toggle="collapse" data-bs-target="#m-news">
         訊息公告 <span class="ms-2">▾</span>
       </button>
       <div id="m-news" class="collapse">
         <a class="list-group-item list-group-item-action list-group-item-dark ps-4" href="news.html">最新消息</a>
       </div>
-
 
       <button class="list-group-item list-group-item-action list-group-item-dark d-flex justify-content-between align-items-center"
               data-bs-toggle="collapse" data-bs-target="#m-info">
@@ -175,6 +186,24 @@
     </div>
   </div>
 </div>
+
+<!-- 🔎 搜尋結果 Modal -->
+<div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchResultsLabel">搜尋結果</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+      </div>
+      <div class="modal-body" id="searchResultsBody">
+        <!-- 結果由 JS 注入 -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🔹 載入站內搜尋 JS（你已另存 js/site_search.js） -->
+<script src="js/site_search.js" defer></script>
 
 <script>
   // 手機：點了 offcanvas 裡的連結就自動收起

@@ -21,7 +21,7 @@
   /* 尺寸 */
   --navbar-height:   80px;
   --banner-height:   300px;
-  --carousel-h-lg:   1200px;   /* 桌機輪播圖高 */
+  --carousel-h-lg:   480px;   /* 桌機輪播圖高 */
   --carousel-h-md:   320px;   /* 平板輪播圖高 */
   --carousel-h-sm:   240px;   /* 手機輪播圖高 */
 }
@@ -115,9 +115,10 @@ body > .container {
 .carousel { margin-bottom: 2rem; }
 
 .carousel-inner img {
-  height: var(--carousel-h-lg);
   width: 100%;
-  object-fit: cover;      /* 保持比例，裁切填滿 */
+  height: var(--carousel-h-lg); /* 桌機高度變回 slide1 / slide2 的比例大小 */
+  object-fit: cover;           /* 超出裁切填滿 */
+  aspect-ratio: 16 / 9;        /* 維持比例 */
 }
 
 /* ========== 7) 頁腳（Footer） ========== */
@@ -160,16 +161,12 @@ a:hover {
   .navbar .nav-link { font-size: 16px; }
   .carousel-inner img { height: var(--carousel-h-md); }
 }
-  .carousel-inner img { height: var(--carousel-h-md); }
-
-
 @media (max-width: 767px) {      /* 手機 */
   .navbar-brand { font-size: 20px; }
   .navbar-nav > li > a,
   .navbar .nav-link { font-size: 15px; }
   .carousel-inner img { height: var(--carousel-h-sm); }
 }
-  .carousel-inner img { height: var(--carousel-h-sm); }
   .dropdown-menu a {
     font-size: 15px;
   }
@@ -236,3 +233,475 @@ a:hover {
   z-index: 1020; 
 }
 */
+/* 搜尋結果片段高亮 */
+.search-hit mark {
+  background: #fff3cd;      /* 淡黃 */
+  padding: 0px 2px;
+  border-radius: 1px;
+}
+
+/* ====== 師資：橫向條列式（含頭像 & 無頭像版本） ====== */
+.faculty-horizontal {
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr; /* 手機：單欄，易讀 */
+  gap: 12px;
+}
+.faculty-horizontal li {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.faculty-horizontal li:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.12);
+}
+.faculty-horizontal a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  color: inherit;
+  text-decoration: none;
+}
+.faculty-horizontal .avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 72px;
+  background: #e5e7eb; /* 沒圖時的底色 */
+}
+.faculty-horizontal.no-avatar .avatar { display: none; }
+
+.faculty-horizontal .info { display: flex; flex-direction: column; min-width: 0; }
+.faculty-horizontal .line { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+
+.faculty-horizontal .name  { font-weight: 700; color: var(--brand-green-900); }
+.faculty-horizontal .dept  { color: #374151; }
+.faculty-horizontal .title { color: #6b7280; }
+.faculty-horizontal .sep   { color: #9ca3af; }
+
+/* 桌機：仍維持單列橫向條列的視覺（寬一點、更穩定） */
+@media (min-width: 992px) {
+  .faculty-horizontal { grid-template-columns: 1fr; gap: 12px; }
+  .faculty-horizontal .avatar { width: 84px; height: 84px; flex-basis: 84px; }
+  .faculty-horizontal a { padding: 14px 18px; gap: 18px; }
+}
+
+/* 師資介紹主標題 */
+.section-title__text {
+  font-size: 32px !important;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+/* 師資條列字體大小調整 */
+.faculty-horizontal .name {
+  font-size: 20px;    /* 姓名字體 */
+}
+
+.faculty-horizontal .dept {
+  font-size: 18px;    /* 系所字體 */
+}
+
+.faculty-horizontal .title {
+  font-size: 18px;    /* 職稱字體 */
+}
+
+/*<<<<<<< HEAD*/
+/* ========== 14) 修課規範頁面樣式 ========== */
+/* 標籤頁自定義樣式 */
+.nav-tabs .nav-link {
+  color: var(--brand-green-700);
+  font-weight: 500;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--brand-green-900);
+  border-bottom-color: var(--brand-green-900);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--brand-green-900);
+  border-bottom-color: var(--brand-green-900);
+  background-color: transparent;
+}
+
+/* 課程卡片樣式 */
+.course-card {
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: var(--white);
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.12);
+}
+
+/* 課程類型標籤 */
+.course-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.course-type.required {
+  background-color: #dc3545;
+  color: white;
+}
+
+.course-type.elective {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* 學分數樣式 */
+.credits {
+  color: var(--brand-green-700);
+  font-weight: 600;
+}
+
+/* 證書資訊區塊 */
+.certificate-info {
+  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
+  color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/*=======*/
+/* ===== 計畫緣起：主圖置中 ===== */
+.origin-hero {
+  margin: 16px auto 24px;
+  text-align: center;
+}
+.origin-hero img {
+  display: block;
+  max-width: 780px;   /* 主圖最大寬度（可依需求調整） */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+.origin-hero figcaption {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ===== 內文（好讀排版，沿用網站字體） ===== */
+.prose {
+  color: var(--brand-green-700);
+  font-size: 18px;        /* 內文字體大小 */
+  line-height: 1.9;       /* 行高 */
+}
+.prose h3 {
+  margin-top: 1.25rem;
+  color: var(--brand-green-900);
+  font-weight: 700;
+}
+.prose ul {
+  padding-left: 1.25rem;
+  margin: .5rem 0 1rem;
+}
+.prose li { margin: .25rem 0; }
+
+/* 手機微調：主圖留白縮小點、內文字距維持 */
+@media (max-width: 767px) {
+  .origin-hero { margin: 12px auto 18px; }
+  .prose { font-size: 17px; }
+}
+/*>>>>>>> b9640c801d23e00cc34a6af809af91a34b03c896*/
+
+/* ========== 15) 課程規劃表響應式表格樣式 ========== */
+/* 表格基本樣式 */
+.curriculum-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  margin-bottom: 2rem;
+}
+
+.curriculum-table th {
+  background-color: var(--brand-green-900);
+  color: var(--white);
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.curriculum-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  vertical-align: middle;
+  text-align: center;
+}
+
+.curriculum-table tr:hover {
+  background-color: rgba(0,0,0,.02);
+}
+
+/* 課程類型標籤 */
+.curriculum-table .course-type {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.curriculum-table .course-type.required {
+  background-color: #dc3545;
+  color: white;
+}
+
+.curriculum-table .course-type.elective {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* 響應式表格 - 手機版轉換為卡片式 */
+@media (max-width: 767px) {
+  .curriculum-table {
+    display: block;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .curriculum-table thead {
+    display: none;
+  }
+  
+  .curriculum-table tbody {
+    display: block;
+  }
+  
+  .curriculum-table tr {
+    display: block;
+    background-color: var(--white);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    padding: 16px;
+  }
+  
+  .curriculum-table td {
+    display: block;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    text-align: left;
+  }
+  
+  .curriculum-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .curriculum-table td::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: var(--brand-green-700);
+    display: inline-block;
+    width: 80px;
+    margin-right: 8px;
+  }
+  
+  .curriculum-table .course-type {
+    margin-bottom: 4px;
+  }
+}
+
+/* 平板版 - 文字靠左對齊 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .curriculum-table th,
+  .curriculum-table td {
+    text-align: left;
+  }
+}
+
+/* 課程名稱樣式 */
+.curriculum-table .course-name {
+  font-weight: 600;
+  color: var(--brand-green-900);
+}
+
+/* 學分數樣式 */
+.curriculum-table .credits {
+  color: var(--brand-green-700);
+  font-weight: 600;
+}
+
+/* 課號樣式 */
+.curriculum-table .course-code {
+  font-family: monospace;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+/* 開課單位樣式 */
+.curriculum-table .department {
+  color: #495057;
+  font-size: 0.9em;
+}
+
+/* ========== 16) 申請流程與表單頁面樣式 ========== */
+/* 申請流程圖片樣式 */
+.application-steps {
+  margin-bottom: 3rem;
+}
+
+.process-image-container {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.process-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+
+/* 下載區塊樣式 */
+.download-section {
+  background: linear-gradient(135deg, var(--brand-green-100), var(--white));
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.download-section h3 {
+  color: var(--brand-green-900);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.download-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.download-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.download-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  border-color: var(--brand-green-500);
+}
+
+.download-card .file-icon {
+  font-size: 3rem;
+  color: var(--brand-green-700);
+  margin-bottom: 1rem;
+}
+
+.download-card .file-name {
+  color: var(--brand-green-900);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.download-card .download-btn {
+  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.download-card .download-btn:hover {
+  background: linear-gradient(135deg, var(--brand-green-900), var(--brand-green-700));
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+/* 響應式調整 */
+@media (max-width: 767px) {
+  .process-image-container {
+    margin: 1.5rem auto;
+  }
+  
+  .process-image {
+    border-radius: 8px;
+  }
+  
+  .download-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .download-section {
+    padding: 1.5rem;
+  }
+  
+  .download-card {
+    padding: 1.25rem;
+  }
+  
+  .download-card .file-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* 平板版優化 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .download-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* ===== 計畫目標 ===== */
+.row.justify-content-center {
+  color: var(--brand-green-700);
+  font-size: 18px;        /* 內文字體大小 */
+  line-height: 1.9;       /* 行高 */
+}
