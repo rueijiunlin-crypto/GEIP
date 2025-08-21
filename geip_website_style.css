@@ -54,12 +54,23 @@ body {
 
 .navbar-brand {
   color: var(--white) !important;
-  font-size: 24px !important; /* 品牌名稱字體大小 */
+  font-size: 22px !important; /* 品牌名稱字體大小 */
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
+.brand-text {
+  display: flex;
+  flex-direction: column;  /* 垂直排列 */
+  line-height: 1.2;        /* 行距 */
+  font-size: 24px;         /* 字體大小可依需求調整 */
+  font-weight: 700;
+  color: var(--white) !important;
+  margin-left: 8px;        /* 與 logo 保持一點距離 */
+}
+
 
 .navbar-brand img {
   height: calc(var(--navbar-height) - 32px); /* 讓 logo 比導覽列略小一點 */
