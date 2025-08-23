@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="geip_website_style.css">
   <script src="js/title_prefix.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
   <!-- 基本 SEO -->
   <meta name="description" content="綠色工程產學共育實習學程：計畫簡介、課程資訊、跨領域專題、實習專區、教學資源與申請流程。">
   <meta name="keywords" content="綠色工程, 實習學程, 課程資訊, 跨領域專題, 產學合作, 高科大, GEIP">
@@ -30,6 +31,7 @@
   <meta name="twitter:image" content="https://rueijiunlin-crypto.github.io/GEIP/banner.jpg">
 
   <script src="js/includes.js" defer></script>
+  <script src="js/news_api.js" defer></script>
 </head>
 <body>
 
@@ -70,26 +72,16 @@
 
   <div class="container my-5">
     <h2 class="text-center mb-4">最新公告</h2>
-    <ul class="list-group" id="latest-news"></ul>
+    <div class="row" id="latestNewsContainer">
+      <!-- 最新消息將由JavaScript動態載入 -->
+    </div>
     <div class="text-center mt-3">
       <a href="news.html" class="btn btn-primary">查看更多公告</a>
+      <button id="refreshNewsBtn" class="btn btn-outline-secondary ms-2">
+        <i class="bi bi-arrow-clockwise"></i> 重新載入
+      </button>
     </div>
   </div>
-
-  <script>
-  fetch('assets/data/news.json')
-    .then(response => response.json())
-    .then(data => {
-      let newsList = document.getElementById('latest-news');
-      data.slice(0, 5).forEach(item => {
-        let li = document.createElement('li');
-        li.className = 'list-group-item';
-        li.innerHTML = `<strong>[${item.date}]</strong> <a href="${item.link}">${item.title}</a>`;
-        newsList.appendChild(li);
-      });
-    })
-    .catch(error => console.error('載入最新消息失敗:', error));
-  </script>
 
 
   <!-- 頁尾 -->

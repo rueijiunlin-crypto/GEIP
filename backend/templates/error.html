@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}錯誤 - GEIP管理後台{% endblock %}
+{% block page_title %}錯誤{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-white">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    發生錯誤
+                </h6>
+            </div>
+            <div class="card-body text-center">
+                <div class="mb-4">
+                    <i class="bi bi-exclamation-triangle text-warning" style="font-size: 4rem;"></i>
+                </div>
+                
+                <h4 class="text-danger mb-3">{{ error }}</h4>
+                <p class="text-muted mb-4">{{ message }}</p>
+                
+                <div class="d-grid gap-2 d-md-block">
+                    <a href="{{ url_for('admin_home') }}" class="btn btn-primary">
+                        <i class="bi bi-house-door"></i> 返回首頁
+                    </a>
+                    <a href="{{ url_for('news_list') }}" class="btn btn-outline-primary">
+                        <i class="bi bi-newspaper"></i> 最新消息管理
+                    </a>
+                    <button onclick="history.back()" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> 返回上一頁
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
