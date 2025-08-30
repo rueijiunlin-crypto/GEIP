@@ -117,19 +117,23 @@ body {
 body > .container {
   flex: 1;                    /* ✅ 撐開主內容 → footer 貼底 */
   max-width: 1140px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 1rem;         /* 上下左右間距統一 */
   margin: 0 auto;
 }
 
 /* ========== 6) 輪播（Carousel） ========== */
-.carousel { margin-bottom: 2rem; }
+.carousel { 
+  margin: 2rem 0;              /* 上下間距統一 */
+  border-radius: 12px;         /* 圓角設計 */
+  overflow: hidden;            /* 確保圓角效果 */
+  box-shadow: 0 4px 16px rgba(0,0,0,.08); /* 陰影效果 */
+}
 
 .carousel-inner img {
   width: 100%;
-  height: var(--carousel-h-lg); /* 桌機高度變回 slide1 / slide2 的比例大小 */
-  object-fit: cover;           /* 超出裁切填滿 */
-  aspect-ratio: 16 / 9;        /* 維持比例 */
+  height: var(--carousel-h-lg); /* 固定高度，讓圖片填滿輪播區塊 */
+  object-fit: cover;            /* 改為 cover，讓圖片填滿整個區域 */
+  background-color: #f8f9fa;   /* 圖片背景色，與頁面背景一致 */
 }
 
 /* ========== 7) 頁腳（Footer） ========== */
@@ -170,13 +174,17 @@ a:hover {
   .navbar-brand { font-size: 22px; }
   .navbar-nav > li > a,
   .navbar .nav-link { font-size: 16px; }
-  .carousel-inner img { height: var(--carousel-h-md); }
+  .carousel-inner img { 
+    height: var(--carousel-h-md);
+  }
 }
 @media (max-width: 767px) {      /* 手機 */
   .navbar-brand { font-size: 20px; }
   .navbar-nav > li > a,
   .navbar .nav-link { font-size: 15px; }
-  .carousel-inner img { height: var(--carousel-h-sm); }
+  .carousel-inner img { 
+    height: var(--carousel-h-sm);
+  }
 }
   .dropdown-menu a {
     font-size: 15px;
@@ -441,6 +449,16 @@ a:hover {
 @media (max-width: 767px) {
   .origin-hero { margin: 12px auto 18px; }
   .prose { font-size: 17px; }
+  
+  /* 手機版輪播區塊優化 */
+  .carousel {
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+  
+  body > .container {
+    padding: 1.5rem 0.75rem;
+  }
 }
 /*>>>>>>> b9640c801d23e00cc34a6af809af91a34b03c896*/
 
