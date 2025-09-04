@@ -21,7 +21,7 @@
   /* 尺寸 */
   --navbar-height:   80px;
   --banner-height:   300px;
-  --carousel-h-lg:   480px;   /* 桌機輪播圖高 */
+  --carousel-h-lg:   640px;   /* 桌機輪播圖高 */
   --carousel-h-md:   320px;   /* 平板輪播圖高 */
   --carousel-h-sm:   240px;   /* 手機輪播圖高 */
 }
@@ -107,9 +107,6 @@ body {
   }
 }
 
-
-
-
 /* ========== 3) 下拉選單（Dropdown） ========== */
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;  /* 滑過即展開 */
@@ -146,19 +143,25 @@ body > .container {
 }
 
 /* ========== 6) 輪播（Carousel） ========== */
-.carousel { 
-  margin: 2rem 0;              /* 上下間距統一 */
-  border-radius: 12px;         /* 圓角設計 */
-  overflow: hidden;            /* 確保圓角效果 */
-  box-shadow: 0 4px 16px rgba(0,0,0,.08); /* 陰影效果 */
+@media (min-width: 992px) {
+  .carousel-container-full {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .carousel-container-full .carousel-inner img {
+    height: 640px;              /* 放大高度 */
+    object-fit: cover;          /* 確保圖片填滿 */
+  }
+
+  .carousel-container-full .carousel {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  }
 }
 
-.carousel-inner img {
-  width: 100%;
-  height: var(--carousel-h-lg); /* 固定高度，讓圖片填滿輪播區塊 */
-  object-fit: cover;            /* 改為 cover，讓圖片填滿整個區域 */
-  background-color: #f8f9fa;   /* 圖片背景色，與頁面背景一致 */
-}
 
 /* ========== 7) 頁腳（Footer） ========== */
 .footer {
