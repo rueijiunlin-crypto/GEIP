@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="image/favicon.png" type="image/png">
+  <title>企業參訪相片</title>
+  <script src="js/title_prefix.js"></script>
+  <link rel="stylesheet" href="geip_website_style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="js/includes.js" defer></script>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <div data-include="partials/navbar.html"></div>
+
+  <div class="container my-5">
+    <!-- 頁面標題 -->
+    <div class="page-header">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+          <li class="breadcrumb-item"><a href="gallery.html">活動花絮</a></li>
+          <li class="breadcrumb-item active" aria-current="page" id="company-name">企業參訪</li>
+        </ol>
+      </nav>
+      <h1 class="page-title" id="page-title">企業參訪相片</h1>
+      <p class="page-subtitle" id="page-subtitle">企業參訪活動相片集錦</p>
+    </div>
+
+    <!-- 相片輪播區塊 -->
+    <div class="gallery-carousel-container">
+      <div id="companyCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators" id="carousel-indicators">
+          <!-- 指示器將在這裡動態生成 -->
+        </div>
+        <div class="carousel-inner" id="carousel-inner">
+          <!-- 相片將在這裡動態生成 -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#companyCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">上一張</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#companyCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">下一張</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 返回按鈕 -->
+    <div class="text-center mt-5">
+      <a href="gallery.html" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i>
+        返回活動花絮
+      </a>
+    </div>
+  </div>
+
+  <script>
+  // 從 URL 參數獲取公司 ID
+  const urlParams = new URLSearchParams(window.location.search);
+  const companyId = urlParams.get('id');
+
+  if (companyId) {
+    // 載入相片資料
+    fetch('assets/data/gallery.json')
+      .then(response => response.json())
+      .then(data => {
+        const company = data.find(item => item.id === companyId);
+        
+        if (company) {
+          // 更新頁面標題
+          document.getElementById('company-name').textContent = company.name;
+          document.getElementById('page-title').textContent = company.name + ' 參訪相片';
+          
+          // 格式化日期
+          const date = new Date(company.date);
+          const formattedDate = date.toLocaleDateString('zh-TW', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          });
+          document.getElementById('page-subtitle').textContent = `${formattedDate} 企業參訪活動`;
+          
+          // 生成輪播指示器
+          const indicators = document.getElementById('carousel-indicators');
+          const carouselInner = document.getElementById('carousel-inner');
+          
+          company.photos.forEach((photo, index) => {
+            // 創建指示器
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
+            indicator.setAttribute('data-bs-target', '#companyCarousel');
+            indicator.setAttribute('data-bs-slide-to', index);
+            if (index === 0) indicator.classList.add('active');
+            indicators.appendChild(indicator);
+            
+            // 創建輪播項目
+            const carouselItem = document.createElement('div');
+            carouselItem.className = 'carousel-item';
+            if (index === 0) carouselItem.classList.add('active');
+            
+            carouselItem.innerHTML = `
+              <img src="image/gallery/${company.folder}/${photo}" 
+                   class="d-block w-100 gallery-image" 
+                   alt="${company.name} 參訪相片 ${index + 1}">
+            `;
+            
+            carouselInner.appendChild(carouselItem);
+          });
+        } else {
+          // 公司不存在
+          document.getElementById('page-title').textContent = '找不到該企業';
+          document.getElementById('page-subtitle').textContent = '請檢查連結是否正確';
+        }
+      })
+      .catch(error => {
+        console.error('載入相片失敗:', error);
+        document.getElementById('page-title').textContent = '載入失敗';
+        document.getElementById('page-subtitle').textContent = '無法載入相片，請稍後再試';
+      });
+  } else {
+    // 沒有公司 ID
+    document.getElementById('page-title').textContent = '參數錯誤';
+    document.getElementById('page-subtitle').textContent = '請從活動花絮頁面選擇企業';
+  }
+  </script>
+
+  <div data-include="partials/footer.html"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
