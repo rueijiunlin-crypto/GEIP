@@ -171,6 +171,12 @@ body > .container {
   padding: 14px 0;
   margin-top: auto;        /* ✅ Flex 關鍵：推到底 */
 }
+.footer-logo {
+  height: 70px;   /* 這裡控制縮小比例，比如原本60px就改成50px */
+  width: auto;    /* 保持等比例縮放 */
+  margin-bottom: 10px;
+}
+
 
 /* ========== 8) 一般文字與連結 ========== */
 h1, h2, h3 { color: var(--brand-green-700); }
