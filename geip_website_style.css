@@ -86,29 +86,24 @@ body {
   padding-bottom: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .navbar-brand {
-    display: flex;
-    align-items: center;
-  }
-
-  .brand-text {
-    display: flex;
+    font-size: 14px;
     flex-direction: column;
-    font-size: 12px;
-    line-height: 1.2;
-    margin-left: 0.5rem;
-  }
-
-  .brand-text span {
+    align-items: flex-start;
     white-space: nowrap;
   }
 
   .navbar-brand img {
-    height: 36px;
-    width: auto;
+    height: 32px;
+  }
+
+  .brand-text {
+    font-size: 14px;
+    line-height: 1.2;
   }
 }
+
 
 /* ========== 3) 下拉選單（Dropdown） ========== */
 .nav-item.dropdown:hover .dropdown-menu {
