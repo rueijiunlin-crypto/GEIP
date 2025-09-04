@@ -16,23 +16,70 @@
   <div data-include="partials/navbar.html"></div>
 
   <div class="container my-5">
-    <h2 class="text-center mb-5">最新消息</h2>
-    <ul class="list-group" id="all-news"></ul>
+    <h1 class="mb-5 fw-bold text-center">最新消息</h1>
+    <div class="news-list-container">
+      <div class="news-list" id="news-list">
+        <!-- 新聞項目將在這裡動態生成 -->
+      </div>
+    </div>
   </div>
 
   <script>
   fetch('assets/data/news.json')
     .then(response => response.json())
     .then(data => {
-      let newsList = document.getElementById('all-news');
+      let newsList = document.getElementById('news-list');
+      
+      // 按日期排序（最新的在前）
+      data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      
       data.forEach(item => {
-        let li = document.createElement('li');
-        li.className = 'list-group-item';
-        li.innerHTML = `<strong>[${item.date}]</strong> <a href="${item.link}">${item.title}</a>`;
-        newsList.appendChild(li);
+        // 解析標題中的分類
+        let category = '';
+        let title = item.title;
+        
+        // 檢查是否有分類標記
+        if (title.includes('【')) {
+          const categoryMatch = title.match(/【([^】]+)】/);
+          if (categoryMatch) {
+            category = categoryMatch[1];
+            title = title.replace(/【[^】]+】/, '').trim();
+          }
+        }
+        
+        // 格式化日期
+        const date = new Date(item.date);
+        const formattedDate = date.toLocaleDateString('zh-TW', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        });
+        
+        // 創建新聞項目
+        const newsItem = document.createElement('div');
+        newsItem.className = 'news-item';
+        newsItem.innerHTML = `
+          <a href="${item.link}" class="news-link">
+            <div class="news-content">
+              <div class="news-meta">
+                <span class="news-date">${formattedDate}</span>
+                ${category ? `<span class="news-category">${category}</span>` : ''}
+              </div>
+              <h3 class="news-title">${title}</h3>
+            </div>
+            <div class="news-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        `;
+        
+        newsList.appendChild(newsItem);
       });
     })
-    .catch(error => console.error('載入最新消息失敗:', error));
+    .catch(error => {
+      console.error('載入最新消息失敗:', error);
+      document.getElementById('news-list').innerHTML = '<p class="error-message">載入新聞失敗，請稍後再試。</p>';
+    });
   </script>
 
 
