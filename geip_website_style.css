@@ -1791,3 +1791,66 @@ a:hover {
     height: 450px;
   }
 }
+
+/* Poster Embedded Styles */
+.poster-embedded-container {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.poster-embedded {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  max-width: 700px;
+  width: 100%;
+}
+
+.poster-embedded:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+.poster-embedded-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.poster-embedded:hover .poster-embedded-image {
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments for embedded poster */
+@media (max-width: 991.98px) {
+  .poster-embedded-container {
+    margin: 1.5rem 0;
+  }
+  
+  .poster-embedded {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .poster-embedded-container {
+    margin: 1rem 0;
+  }
+  
+  .poster-embedded {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  
+  .poster-embedded-image {
+    border-radius: 12px;
+  }
+}
