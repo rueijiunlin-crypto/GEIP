@@ -86,6 +86,30 @@ body {
   padding-bottom: 0;
 }
 
+@media (max-width: 767px) {
+  .navbar-brand {
+    flex-direction: row;         /* 橫向排列：logo + 文字 */
+    align-items: center;
+    gap: 8px;                    /* Logo 與文字之間距離 */
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;      /* 讓文字變成兩行 */
+    font-size: 14px;             /* ✅ 縮小字體以避免擠壓 */
+    line-height: 1.2;
+    color: var(--white) !important;
+    white-space: normal;         /* 允許換行 */
+  }
+
+  .navbar-brand img {
+    height: 36px;                /* Logo 高度再小一點 */
+  }
+}
+
+
+
+
 /* ========== 3) 下拉選單（Dropdown） ========== */
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;  /* 滑過即展開 */
