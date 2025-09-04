@@ -167,15 +167,22 @@ body > .container {
 .footer {
   background-color: var(--brand-green-900);
   color: var(--white);
-  text-align: center;
-  padding: 14px 0;
-  margin-top: auto;        /* ✅ Flex 關鍵：推到底 */
+  padding: 20px 0;
+  font-size: 24px;
 }
+
 .footer-logo {
-  height: 70px;   /* 這裡控制縮小比例，比如原本60px就改成50px */
-  width: auto;    /* 保持等比例縮放 */
-  margin-bottom: 10px;
+  height: 120px;   /* 依需求調整 */
+  width: auto;
+  display: block;
+  margin: 0 auto; /* 手機版置中 */
 }
+
+.footer-contact {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
 
 
 /* ========== 8) 一般文字與連結 ========== */
