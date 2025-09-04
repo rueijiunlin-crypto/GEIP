@@ -891,3 +891,450 @@ a:hover {
   font-size: 18px;        /* 內文字體大小 */
   line-height: 1.9;       /* 行高 */
 }
+
+/* ========== 18) 新聞頁面樣式 ========== */
+/* 頁面標題區塊 */
+.page-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.page-title {
+  color: var(--brand-green-900);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.page-subtitle {
+  color: var(--brand-green-700);
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* 麵包屑導航 */
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item a {
+  color: var(--brand-green-500);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--brand-green-900);
+}
+
+.breadcrumb-item.active {
+  color: var(--brand-green-700);
+}
+
+/* 新聞內容區塊 */
+.news-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.news-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+/* 新聞標題 */
+.news-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.news-title {
+  color: var(--brand-green-900);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.news-subtitle {
+  color: var(--brand-green-700);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* 講座描述 */
+.news-description {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--brand-green-100), rgba(255,255,255,0.8));
+  border-radius: 12px;
+  border-left: 4px solid var(--brand-green-700);
+}
+
+.description-text {
+  color: var(--brand-green-700);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 講座亮點 */
+.news-highlights {
+  margin-bottom: 2rem;
+}
+
+.highlights-title {
+  color: var(--brand-green-900);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights-list li {
+  color: var(--brand-green-700);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  padding-left: 0;
+}
+
+/* 講座資訊網格 */
+.news-info {
+  margin-bottom: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+
+.info-icon {
+  color: var(--brand-green-700);
+  font-size: 1.5rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.info-content h5 {
+  color: var(--brand-green-900);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.info-content p {
+  color: var(--brand-green-700);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+
+.info-content .note {
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* 報名區塊 */
+.news-registration {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.registration-card {
+  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
+  color: var(--white);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+}
+
+.registration-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.registration-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  color: var(--brand-green-700) !important;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.registration-btn:hover {
+  background: var(--brand-green-100);
+  color: var(--brand-green-900) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+/* 收穫清單 */
+.news-benefits {
+  margin-bottom: 2rem;
+}
+
+.benefits-title {
+  color: var(--brand-green-900);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  color: var(--brand-green-700);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  padding-left: 0;
+}
+
+/* 主辦單位 */
+.news-organizer {
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0,0,0,.02);
+  border-radius: 12px;
+}
+
+.organizer-text {
+  color: var(--brand-green-700);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* 結語 */
+.news-conclusion {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--brand-green-100), rgba(255,255,255,0.8));
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.conclusion-text {
+  color: var(--brand-green-700);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* 響應式設計 */
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-title {
+    font-size: 3rem;
+  }
+  
+  .news-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .news-card {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .news-title {
+    font-size: 1.5rem;
+  }
+  
+  .news-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+}
+
+/* ========== 19) 最新消息列表樣式 ========== */
+.news-list-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.news-item {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.news-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  border-color: var(--brand-green-500);
+}
+
+.news-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  gap: 1rem;
+}
+
+.news-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.news-date {
+  color: var(--brand-green-700);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--brand-green-100);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.news-category {
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--brand-green-700);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.news-title {
+  color: var(--brand-green-900);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-arrow {
+  color: var(--brand-green-500);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover .news-arrow {
+  transform: translateX(4px);
+  color: var(--brand-green-700);
+}
+
+.error-message {
+  text-align: center;
+  color: #dc3545;
+  padding: 2rem;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+/* 響應式設計 */
+@media (max-width: 767px) {
+  .news-list-container {
+    margin: 0 1rem;
+  }
+  
+  .news-link {
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .news-arrow {
+    align-self: flex-end;
+  }
+  
+  .news-meta {
+    gap: 0.5rem;
+  }
+  
+  .news-date,
+  .news-category {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.6rem;
+  }
+  
+  .news-title {
+    font-size: 1rem;
+  }
+}
