@@ -22,8 +22,8 @@
   --navbar-height:   80px;
   --banner-height:   300px;
   --carousel-h-lg:   540px;   /* 桌機輪播圖高 */
-  --carousel-h-md:   320px;   /* 平板輪播圖高 */
-  --carousel-h-sm:   240px;   /* 手機輪播圖高 */
+  --carousel-h-md:   360px;   /* 平板輪播圖高 */
+  --carousel-h-sm:   270px;   /* 手機輪播圖高 */
 }
 
 /* ========== 1) Flex 基礎：讓頁腳可貼底 ========== */
@@ -161,6 +161,29 @@ body > .container {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  }
+}
+/* 平板（768px ≤ 寬度 ≤ 991px） */
+@media (max-width: 991px) and (min-width: 768px) {
+  .carousel-container-full .carousel-inner img {
+    height: var(--carousel-h-md);   /* 平板高度 */
+    object-fit: contain;
+    background: #f4f5f7;
+  }
+}
+
+/* 手機（寬度 ≤ 767px） */
+@media (max-width: 767px) {
+  .carousel-container-full .carousel-inner img {
+    height: var(--carousel-h-sm);   /* 手機高度 */
+    object-fit: contain;
+    background: #f4f5f7;
+  }
+
+  /* 手機額外優化：圓角和間距 */
+  .carousel-container-full .carousel {
+    margin: 1rem 0;
+    border-radius: 8px;
   }
 }
 
@@ -487,22 +510,6 @@ a:hover {
 }
 .prose li { margin: .25rem 0; }
 
-/* 手機微調：主圖留白縮小點、內文字距維持 */
-@media (max-width: 767px) {
-  .origin-hero { margin: 12px auto 18px; }
-  .prose { font-size: 17px; }
-  
-  /* 手機版輪播區塊優化 */
-  .carousel {
-    margin: 1rem 0;
-    border-radius: 8px;
-  }
-  
-  body > .container {
-    padding: 1.5rem 0.75rem;
-  }
-}
-/*>>>>>>> b9640c801d23e00cc34a6af809af91a34b03c896*/
 
 /* ========== 15) 課程規劃表響應式表格樣式 ========== */
 /* 表格基本樣式 */
