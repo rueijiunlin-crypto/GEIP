@@ -8,6 +8,7 @@
   <script src="js/title_prefix.js"></script>
   <link rel="stylesheet" href="geip_website_style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="js/includes.js" defer></script>
 </head>
 <body>
@@ -15,10 +16,104 @@
   <!-- 導覽列 -->
   <div data-include="partials/navbar.html"></div>
 
-  <div class="container">
-    <h1>實習修課規定</h1>
-    <p>這是「實習修課規定」的內容頁面，請填入內容。</p>
-    <p><a href="index.html">← 回首頁</a></p>
+  <div class="container my-5">
+    <!-- 頁面標題 -->
+    <div class="text-center mb-5">
+      <h1 class="mb-3 fw-bold" style="color: var(--brand-green-900);">實習修課規定</h1>
+    </div>
+
+    <!-- 實習類型導航卡片 -->
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-6 mb-4">
+        <!-- 暑期實習卡片 -->
+        <div class="internship-card">
+          <div class="card-header">
+            <h3 class="card-title">🔧暑期實習</h3>
+          </div>
+          <div class="card-body">
+            <div class="card-info">
+              <div class="info-item">
+                <span class="info-label">學分數：</span>
+                <span class="info-value">3學分</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">實習期間：</span>
+                <span class="info-value">約2個月</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">實習時間：</span>
+                <span class="info-value">暑期（7-8月）</span>
+              </div>
+            </div>
+            <div class="card-description">
+              <p>暑期專注實習，無課業壓力。</p>
+            </div>
+            <div class="card-features">
+              <h5>特色亮點</h5>
+              <ul>
+                <li>時間集中，學習效果佳</li>
+                <li>基礎實務體驗</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="summer_internship.html" class="btn btn-primary">
+              <i class="fas fa-arrow-right"></i>
+              查看詳情
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-6 mb-4">
+        <!-- 學期實習卡片 -->
+        <div class="internship-card">
+          <div class="card-header">
+            <h3 class="card-title">🧰學期實習</h3>
+          </div>
+          <div class="card-body">
+            <div class="card-info">
+              <div class="info-item">
+                <span class="info-label">學分數：</span>
+                <span class="info-value">6-9學分</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">實習期間：</span>
+                <span class="info-value">約3-4個月</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">實習時間：</span>
+                <span class="info-value">學期實習</span>
+              </div>
+            </div>
+            <div class="card-description">
+              <p>深入實務參與，可獲得豐富的實務經驗。</p>
+            </div>
+            <div class="card-features">
+              <h5>特色亮點</h5>
+              <ul>
+                <li>深入實務參與</li>
+                <li>學分數較多</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="semester_internship.html" class="btn btn-primary">
+              <i class="fas fa-arrow-right"></i>
+              查看詳情
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 返回按鈕 -->
+    <div class="text-center mt-5">
+      <a href="rules.html" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i>
+        返回修課規範
+      </a>
+    </div>
   </div>
 
   <div data-include="partials/footer.html"></div>
