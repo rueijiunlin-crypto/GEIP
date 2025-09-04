@@ -21,7 +21,7 @@
   /* 尺寸 */
   --navbar-height:   80px;
   --banner-height:   300px;
-  --carousel-h-lg:   640px;   /* 桌機輪播圖高 */
+  --carousel-h-lg:   540px;   /* 桌機輪播圖高 */
   --carousel-h-md:   320px;   /* 平板輪播圖高 */
   --carousel-h-sm:   240px;   /* 手機輪播圖高 */
 }
@@ -151,8 +151,10 @@ body > .container {
   }
 
   .carousel-container-full .carousel-inner img {
-    height: 640px;              /* 放大高度 */
-    object-fit: cover;          /* 確保圖片填滿 */
+    height: 540px;              /* 放大高度 */
+    object-fit: contain;        /* 等比例縮放 */
+    background: #f4f5f7;      /* 留白區塊底色 */
+
   }
 
   .carousel-container-full .carousel {
