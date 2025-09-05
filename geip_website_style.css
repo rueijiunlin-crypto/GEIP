@@ -24,6 +24,7 @@
   --carousel-h-lg:   540px;   /* 桌機輪播圖高 */
   --carousel-h-md:   360px;   /* 平板輪播圖高 */
   --carousel-h-sm:   270px;   /* 手機輪播圖高 */
+  --navbar-height:   100px;
 }
 
 /* ========== 1) Flex 基礎：讓頁腳可貼底 ========== */
@@ -59,21 +60,22 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: 20px; /* 可以調整數值，例如 30px、40px */
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;  /* 垂直排列 */
   line-height: 1.2;        /* 行距 */
-  font-size: 24px;         /* 字體大小可依需求調整 */
+  font-size: 28px;         /* 字體大小可依需求調整 */
   font-weight: 700;
   color: var(--white) !important;
-  margin-left: 8px;        /* 與 logo 保持一點距離 */
+  margin-left: 12px;        /* 與 logo 保持一點距離 */
 }
 
 
 .navbar-brand img {
-  height: calc(var(--navbar-height) - 32px); /* 讓 logo 比導覽列略小一點 */
+  height: 60px; /* 讓 logo 比導覽列略小一點 */
   width: auto;
 }
 
