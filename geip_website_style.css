@@ -521,7 +521,7 @@ a:hover {
 /* ===== 內文（好讀排版，沿用網站字體） ===== */
 .prose {
   color: var(--brand-green-700);
-  font-size: 18px;        /* 內文字體大小 */
+  font-size: 22px;        /* 內文字體大小 */
   line-height: 1.9;       /* 行高 */
 }
 .prose h3 {
