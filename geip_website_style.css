@@ -82,7 +82,7 @@ body {
 .navbar-nav > li > a,
 .navbar .nav-link {
   color: var(--white) !important;
-  font-size: 18px; /* 導覽列項目字體大小 */
+  font-size: 24px; /* 導覽列項目字體大小 */
   line-height: var(--navbar-height);    /* ✅ 和導覽高度一致，達成垂直置中 */
   padding-top: 0;
   padding-bottom: 0;
