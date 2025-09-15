@@ -182,7 +182,7 @@ body > .container {
   .carousel-container-full .carousel-inner img {
     height: var(--carousel-h-sm);   /* 手機高度 */
     object-fit: contain;
-    background: #f4f5f7;
+    background: #f4f5f7;  
   }
 
   /* 手機額外優化：圓角和間距 */
@@ -191,6 +191,39 @@ body > .container {
     border-radius: 8px;
   }
 }
+
+/* === 讓 Bootstrap Carousel 的滑動轉場確實啟動（手動/自動都套用） === */
+.carousel .carousel-item {
+  transition: transform 0.6s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* 避免切換時被 display:none 影響高度/動畫 */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: block;
+}
+
+/* 讓下一張從右邊進來、上一張從左邊進來（和預設方向一致） */
+.carousel-item-next {
+  transform: translateX(100%);
+}
+.carousel-item-prev {
+  transform: translateX(-100%);
+}
+/* 切換開始/結束時回到原位，形成滑動效果 */
+.carousel-item-next.carousel-item-start,
+.carousel-item-prev.carousel-item-end {
+  transform: translateX(0);
+}
+
+/* 確保左右箭頭不被覆蓋並可點擊 */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 5;
+  pointer-events: auto;
+}
+
 
 
 /* ========== 7) 頁腳（Footer） ========== */
@@ -1888,7 +1921,7 @@ a:hover {
 @media (min-width: 1600px) {
   .navbar {
     height: 100px;                  /* 綠色區塊高度 */
-  }s
+  }
   .navbar-brand img {
     height: 3.5rem;                   /* ≈48px 校徽Logo */
   }
