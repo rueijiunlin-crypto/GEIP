@@ -1866,8 +1866,49 @@ a:hover {
 /* 大桌機 (1920px 以上，像 24吋) */
 @media (min-width: 1600px) {
   .navbar-brand img { height: 4rem; }   /* ≈56px */
-  .brand-text { font-size: 2rem; }      /* ≈24px */
-  .navbar .nav-link { font-size: 1.5rem; } /* ≈18px */
+  .brand-text { font-size: 2rem; }      /* ≈24px *//* 中桌機 (1200px ~ 1599px，像 15.6吋) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .navbar {
+    height: clamp(80px, 6vw, 100px);
+  }
+  .navbar-brand img {
+    height: clamp(2.5rem, 3vw, 3.5rem);   /* ≈40–56px */
+  }
+  .brand-text {
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem); /* ≈18–24px */
+  }
+  .navbar .nav-link {
+    font-size: clamp(1rem, 1.3vw, 1.25rem);  /* ≈16–20px */
+    line-height: clamp(80px, 6vw, 100px);    /* 跟高度對齊 */
+  }
+  .dropdown-menu .dropdown-item {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);  /* 下拉選單字體 */
+    padding: clamp(8px, 1vw, 12px) clamp(16px, 2vw, 20px);
+  }
+}
+
+/* 大桌機 (≥1600px，像 24吋) */
+@media (min-width: 1600px) {
+  .navbar {
+    height: clamp(90px, 5vw, 120px);
+  }
+  .navbar-brand img {
+    height: clamp(3rem, 3.5vw, 4rem);       /* ≈48–64px */
+  }
+  .brand-text {
+    font-size: clamp(1.25rem, 1.8vw, 2.2rem); /* ≈20–35px */
+  }
+  .navbar .nav-link {
+    font-size: clamp(1.125rem, 1.5vw, 1.75rem); /* ≈18–28px */
+    line-height: clamp(90px, 5vw, 120px);
+  }
+  .dropdown-menu .dropdown-item {
+    font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+    padding: clamp(10px, 1.2vw, 14px) clamp(18px, 2.5vw, 24px);
+  }
+}
+
+  .navbar .nav-link { font-size: 1.5rem; } /* ≈18px */  
 }
 
 /* 中桌機 (1200px ~ 1599px，像 15.6吋常見的1366px) */
