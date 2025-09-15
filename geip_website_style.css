@@ -1872,14 +1872,14 @@ a:hover {
     height: 3rem;                 /* ≈40px 校徽Logo */
   }
   .brand-text {
-    font-size: 1.25rem;             /* ≈20px 校名字體 */
+    font-size: 1.5rem;             /* ≈20px 校名字體 */
   }
   .navbar .nav-link {
     line-height: 80px;              /* 跟高度一致，保持垂直置中 */
     font-size: 1.25rem;            /* ≈18px 導覽項目 */
   }
   .dropdown-menu .dropdown-item {
-    font-size: 1.125rem;
+    font-size: 1.125rem !important;  /* ≈16px 下拉選單 */
     padding: 10px 16px;
   }
 }
