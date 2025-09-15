@@ -47,66 +47,67 @@ body {
 /* ========== 2) 導覽列（Navbar） ========== */
 .navbar {
   background-color: var(--brand-green-900);
-  height: var(--navbar-height);         /* ✅ 固定高度 */
+  height: var(--navbar-height);
   padding: 0 20px;
   display: flex;
-  align-items: center;                  /* 內容垂直置中 */
+  align-items: center; /* 垂直置中 */
 }
 
+/* 品牌區（logo + 兩行文字） */
 .navbar-brand {
   color: var(--white) !important;
-  font-size: 22px !important; /* 品牌名稱字體大小 */
-  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: 20px; /* 可以調整數值，例如 30px、40px */
+  margin-left: 20px;
+}
+
+.navbar-brand img {
+  height: 4rem; /* 桌機約 56px */
+  width: auto;
 }
 
 .brand-text {
   display: flex;
-  flex-direction: column;  /* 垂直排列 */
-  line-height: 1.2;        /* 行距 */
-  font-size: 28px;         /* 字體大小可依需求調整 */
+  flex-direction: column;
+  line-height: 1.2;
   font-weight: 700;
   color: var(--white) !important;
-  margin-left: 12px;        /* 與 logo 保持一點距離 */
+  font-size: 1.75rem; /* 桌機：≈24px */
 }
 
-
-.navbar-brand img {
-  height: 60px; /* 讓 logo 比導覽列略小一點 */
-  width: auto;
-}
-
-.navbar-nav > li > a,
+/* 導覽項目 */
 .navbar .nav-link {
   color: var(--white) !important;
-  font-size: 24px; /* 導覽列項目字體大小 */
-  line-height: var(--navbar-height);    /* ✅ 和導覽高度一致，達成垂直置中 */
   padding-top: 0;
   padding-bottom: 0;
+  line-height: var(--navbar-height);
+  font-size: 1.5rem;  /* 桌機：≈18px */
+  font-weight: 500;
 }
 
+/* 下拉選單項目 */
+.dropdown-menu .dropdown-item {
+  font-size: 1.5rem !important; /* 桌機 ≈18px */
+  padding: 10px 16px;
+}
+
+/* ====== 響應式調整 ====== */
+
+/* 平板（768–991px） */
+@media (max-width: 991px) and (min-width: 768px) {
+  .navbar-brand img { height: 3rem; }      /* ≈48px */
+  .brand-text { font-size: 1.25rem; }      /* ≈20px */
+  .navbar .nav-link { font-size: 1rem; }   /* ≈16px */
+  .dropdown-menu .dropdown-item { font-size: 1rem; }
+}
+
+/* 手機（≤767px） */
 @media (max-width: 767px) {
-  .navbar-brand {
-    flex-direction: row;         /* 橫向排列：logo + 文字 */
-    align-items: center;
-    gap: 8px;                    /* Logo 與文字之間距離 */
-  }
-
-  .brand-text {
-    display: flex;
-    flex-direction: column;      /* 讓文字變成兩行 */
-    font-size: 14px;             /* ✅ 縮小字體以避免擠壓 */
-    line-height: 1.2;
-    color: var(--white) !important;
-    white-space: normal;         /* 允許換行 */
-  }
-
-  .navbar-brand img {
-    height: 36px;                /* Logo 高度再小一點 */
-  }
+  .navbar-brand img { height: 2.5rem; }     /* ≈40px */
+  .brand-text { font-size: 1rem; }          /* ≈16px */
+  .navbar .nav-link { font-size: 0.95rem; } /* ≈15px */
+  .dropdown-menu .dropdown-item { font-size: 0.95rem; }
 }
 
 /* ========== 3) 下拉選單（Dropdown） ========== */
