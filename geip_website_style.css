@@ -63,7 +63,7 @@ body {
 }
 
 .navbar-brand img {
-  height: 4rem; /* 桌機約 56px */
+  height: 3.5rem; /* 桌機約 56px */
   width: auto;
 }
 
@@ -73,7 +73,7 @@ body {
   line-height: 1.2;
   font-weight: 700;
   color: var(--white) !important;
-  font-size: 1.75rem; /* 桌機：≈24px */
+  font-size: 1.5rem; /* 桌機：≈24px */
 }
 
 /* 導覽項目 */
@@ -82,13 +82,13 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   line-height: var(--navbar-height);
-  font-size: 1.5rem;  /* 桌機：≈18px */
+  font-size: 1.125rem;  /* 桌機：≈18px */
   font-weight: 500;
 }
 
 /* 下拉選單項目 */
 .dropdown-menu .dropdown-item {
-  font-size: 1.5rem !important; /* 桌機 ≈18px */
+  font-size: 1.125rem; /* 桌機 ≈18px */
   padding: 10px 16px;
 }
 
@@ -1858,4 +1858,21 @@ a:hover {
   .poster-embedded-image {
     border-radius: 12px;
   }
+}
+
+
+/* ====== 額外針對不同螢幕尺寸 (15.6吋 vs 24吋) 的導覽列調整 ====== */
+
+/* 大桌機 (1920px 以上，像 24吋) */
+@media (min-width: 1600px) {
+  .navbar-brand img { height: 4rem; }   /* ≈56px */
+  .brand-text { font-size: 2rem; }      /* ≈24px */
+  .navbar .nav-link { font-size: 1.5rem; } /* ≈18px */
+}
+
+/* 中桌機 (1200px ~ 1599px，像 15.6吋常見的1366px) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .navbar-brand img { height: 3rem; }     /* ≈48px */
+  .brand-text { font-size: 1.25rem; }     /* ≈20px */
+  .navbar .nav-link { font-size: 1.125rem; }  /* ≈16px */
 }
