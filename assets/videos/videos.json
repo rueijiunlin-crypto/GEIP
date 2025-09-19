@@ -19,10 +19,10 @@
       "link": "https://youtu.be/5qap5aO4i9A"
     },
     {
-      "title": "【YT】官方頻道",
+      "title": "【YT】系列特色影片",
       "description": "訂閱我們獲取最新單元影片",
-      "thumbnail": "images/yt-channel-placeholder.jpg",
-      "link": "https://www.youtube.com/@YourChannel"
+      "thumbnail": "https://i.ytimg.com/vi/fpZby6u3i24/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCN5ZKthKU7EZY_rfknYoK6EVxrQA",
+      "link": "https://www.youtube.com/playlist?list=PLwE9aC2NIkXklKW-927gHN-1PeDpinpp-"
     }
   ]
 }
