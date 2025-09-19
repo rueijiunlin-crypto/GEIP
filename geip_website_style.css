@@ -65,6 +65,7 @@ body {
 .navbar-brand img {
   height: 3.5rem; /* 桌機約 56px */
   width: auto;
+  vertical-align: middle;  /* 圖片和文字基線對齊 */
 }
 
 .brand-text {
@@ -74,6 +75,8 @@ body {
   font-weight: 700;
   color: var(--white) !important;
   font-size: 1.5rem; /* 桌機：≈24px */
+  justify-content: center; /* ✅ 垂直置中兩行文字 */
+
 }
 
 /* 導覽項目 */
@@ -1897,12 +1900,12 @@ a:hover {
 /* ====== 額外針對不同螢幕尺寸 (15.6吋 vs 24吋) 的導覽列調整 ====== */
 
 /* ===================== 中桌機 (1200px ~ 1599px) ===================== */
-@media (min-width: 1200px) and (max-width: 1599px) {
+@media (min-width: 1200px) {
   .navbar {
     height: 80px;                   /* 綠色區塊高度 */
   }
   .navbar-brand img {
-    height: 3rem;                 /* ≈40px 校徽Logo */
+    height: 3.5rem;                 /* ≈40px 校徽Logo */
   }
   .brand-text {
     font-size: 1.5rem;             /* ≈20px 校名字體 */
@@ -1916,25 +1919,3 @@ a:hover {
     padding: 10px 16px;
   }
 }
-
-/* ===================== 大桌機 (≥1600px) ===================== */
-@media (min-width: 1600px) {
-  .navbar {
-    height: 100px;                  /* 綠色區塊高度 */
-  }
-  .navbar-brand img {
-    height: 3.5rem;                   /* ≈48px 校徽Logo */
-  }
-  .brand-text {
-    font-size: 2rem;              /* ≈24px 校名字體 */
-  }
-  .navbar .nav-link {
-    line-height: 100px;
-    font-size: 1.5rem;             /* ≈20px 導覽項目 */
-  }
-  .dropdown-menu .dropdown-item {
-    font-size: 1.25rem;
-    padding: 12px 18px;
-  }
-}
-
