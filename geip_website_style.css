@@ -65,7 +65,6 @@ body {
 .navbar-brand img {
   height: 3.5rem; /* 桌機約 56px */
   width: auto;
-  vertical-align: middle;  /* 圖片和文字基線對齊 */
 }
 
 .brand-text {
@@ -75,8 +74,6 @@ body {
   font-weight: 700;
   color: var(--white) !important;
   font-size: 1.5rem; /* 桌機：≈24px */
-  justify-content: center; /* ✅ 垂直置中兩行文字 */
-
 }
 
 /* 導覽項目 */
@@ -1918,4 +1915,18 @@ a:hover {
     font-size: 1.125rem !important;  /* ≈16px 下拉選單 */
     padding: 10px 16px;
   }
+}
+
+/* ✅ 輪播圖片下緣說明文字 */
+.carousel-caption-custom {
+  position: absolute;
+  bottom: 0;                /* 固定在圖片下緣 */
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5); /* 半透明黑底 */
+  color: #fff;
+  text-align: center;
+  font-size: 1.25rem;       /* 放大字體 */
+  padding: 10px 15px;
+  margin: 0;
 }
