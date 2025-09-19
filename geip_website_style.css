@@ -65,6 +65,7 @@ body {
 .navbar-brand img {
   height: 3.5rem; /* 桌機約 56px */
   width: auto;
+  vertical-align: middle;  /* 圖片和文字基線對齊 */
 }
 
 .brand-text {
@@ -74,6 +75,8 @@ body {
   font-weight: 700;
   color: var(--white) !important;
   font-size: 1.5rem; /* 桌機：≈24px */
+  justify-content: center; /* ✅ 垂直置中兩行文字 */
+
 }
 
 /* 導覽項目 */
@@ -1902,7 +1905,7 @@ a:hover {
     height: 80px;                   /* 綠色區塊高度 */
   }
   .navbar-brand img {
-    height: 3rem;                 /* ≈40px 校徽Logo */
+    height: 3.5rem;                 /* ≈40px 校徽Logo */
   }
   .brand-text {
     font-size: 1.5rem;             /* ≈20px 校名字體 */
