@@ -235,7 +235,7 @@ body > .container {
 }
 
 .footer-logo {
-  height: 120px;   /* 依需求調整 */
+  height: 100px;   /* 依需求調整 */
   width: auto;
   display: block;
   margin: 0 auto; /* 手機版置中 */
