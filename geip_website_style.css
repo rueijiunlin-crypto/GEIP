@@ -51,6 +51,8 @@ body {
   padding: 0 20px;
   display: flex;
   align-items: center; /* 垂直置中 */
+  position: relative;
+  z-index: 1050; /* 高於 carousel */
 }
 
 /* 品牌區（logo + 兩行文字） */
@@ -223,7 +225,9 @@ body > .container {
   z-index: 5;
   pointer-events: auto;
 }
-
+.carousel {
+  z-index: 1;
+}
 
 
 /* ========== 7) 頁腳（Footer） ========== */
