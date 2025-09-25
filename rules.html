@@ -1,176 +1,140 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="image/title1.png" type="image/png" />
-    <title>修課規範</title>
-    <script src="js/title_prefix.js"></script>
-    <link rel="stylesheet" href="geip_website_style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="js/includes.js" defer></script>
-    <style>
-      /* 讓整個框框可點擊 */
-      .course-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-      }
-      .course-link:hover {
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 導覽列 -->
-    <div data-include="partials/navbar.html"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="image/title1.png" type="image/png">
+  <title>修課規範</title>
+  <script src="js/title_prefix.js"></script>
+  <link rel="stylesheet" href="geip_website_style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/includes.js" defer></script>
+</head>
+<body>
 
-    <div class="container my-5">
-      <div class="row">
-        <div class="col-12">
-          <!-- 綠色工程產業學分學程 -->
-          <h1 class="mb-4 fw-bold" style="color: var(--brand-black-900)">
-            綠色工程產業學分學程
-          </h1>
+  <!-- 導覽列 -->
+  <div data-include="partials/navbar.html"></div>
 
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <!-- 綠色工程產業學分學程卡片 -->
+        <h1 class="mb-4 fw-bold" style="color: var(--brand-black-900);">綠色工程產業學分學程</h1>
+        <div class="course-card mb-3">   
+          <!-- 必修課程區塊 - 並排顯示 -->
           <div class="row">
             <!-- 核心課程 -->
             <div class="col-md-6">
-              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700)">
-                📜 核心課程
-              </h2>
+              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700);">📜 核心課程</h2>
 
-              <a href="green_engineering_intro.html" class="course-link">
-                <div class="course-card mb-3">
-                  <div class="d-flex flex-wrap gap-2 mb-2">
-                    <span class="course-type required fs-5">必修</span>
-                    <span class="credits fs-5">綠色工程導論</span>
-                    <span class="credits fs-5">3學分</span>
-                  </div>
+              <div class="course-card mb-3 position-relative">  
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="course-type required fs-5">必修</span>
+                  <span class="credits fs-5">綠色工程導論</span>
+                  <span class="credits fs-5">3學分</span>
+                  <a href="green_engineering_intro.html" class="stretched-link"></a>
                 </div>
-              </a>
+              </div>
 
-              <a href="carbon_footprint_lca.html" class="course-link">
-                <div class="course-card mb-3">
-                  <div class="d-flex flex-wrap gap-2 mb-2">
-                    <span class="course-type required fs-5">必修</span>
-                    <span class="credits fs-5">碳足跡生命週期評估</span>
-                    <span class="credits fs-5">3學分</span>
-                  </div>
+              <div class="course-card mb-3 position-relative">
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="course-type required fs-5">必修</span>
+                  <span class="credits fs-5">碳足跡生命週期評估</span>
+                  <span class="credits fs-5">3學分</span>
+                  <a href="carbon_footprint_lca.html" class="stretched-link"></a>
                 </div>
-              </a>
+              </div>
 
-              <a href="cross_discipline_project.html" class="course-link">
-                <div class="course-card mb-3">
-                  <div class="d-flex flex-wrap gap-2 mb-2">
-                    <span class="course-type required fs-5">必修</span>
-                    <span class="credits fs-5">跨領域實務專題（與業界合作）</span>
-                    <span class="credits fs-5">2學分</span>
-                  </div>
+              <div class="course-card mb-3 position-relative">
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="course-type required fs-5">必修</span>
+                  <span class="credits fs-5">跨領域實務專題（與業界合作）</span>
+                  <span class="credits fs-5">2學分</span>
+                  <a href="cross_discipline_project.html" class="stretched-link"></a>
                 </div>
-              </a>
+              </div>
             </div>
-
+            
             <!-- 企業實習 -->
             <div class="col-md-6">
-              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700)">
-                📜 企業實習
-              </h2>
+              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700);">📜 企業實習</h2>
 
-              <a href="semester_internship.html" class="course-link">
-                <div class="course-card mb-3">
-                  <div class="d-flex flex-wrap gap-2 mb-2">
-                    <span class="course-type required fs-5">必修</span>
-                    <span class="credits fs-5">學期實習</span>
-                    <span class="credits fs-5">6-9學分</span>
-                  </div>
+              <div class="course-card mb-3 position-relative">
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="course-type required fs-5">必修</span>
+                  <span class="credits fs-5">學期實習</span>
+                  <span class="credits fs-5">6-9學分</span>
+                  <a href="semester_internship.html" class="stretched-link"></a>
                 </div>
-              </a>
+              </div>
 
-              <a href="summer_internship.html" class="course-link">
-                <div class="course-card mb-3">
-                  <div class="d-flex flex-wrap gap-2 mb-2">
-                    <span class="course-type required fs-5">必修</span>
-                    <span class="credits fs-5">暑期實習</span>
-                    <span class="credits fs-5">3學分</span>
-                  </div>
+              <div class="course-card mb-3 position-relative">
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="course-type required fs-5">必修</span>
+                  <span class="credits fs-5">暑期實習</span>
+                  <span class="credits fs-5">3學分</span>
+                  <a href="summer_internship.html" class="stretched-link"></a>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
-
-          <!-- 證書取得條件 -->
+          
+          <!-- 畢業要求區塊 -->
           <div class="mt-5">
             <div class="mb-5">
-              <h4 class="mb-3 fw-bold" style="color: var(--brand-green-700)">
-                📜 證書取得條件
-              </h4>
+              <h4 class="mb-3 fw-bold" style="color: var(--brand-green-700);">📜 證書取得條件</h4>
               <div class="certificate-info">
-                <p class="mb-0">
-                  完成必修課程及選修課程12學分以上，計畫總辦公室核發「綠色工程跨領域人才證書」，及高科大「綠色工程產業學分學程證書」。
-                </p>
+                <p class="mb-0">完成必修課程及選修課程12學分以上，計畫總辦公室核發「綠色工程跨領域人才證書」，及高科大「綠色工程產業學分學程證書」。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 綠色工程微學程 -->
+        <h1 class="mb-4 fw-bold" style="color: var(--brand-green-900);">綠色工程微學程</h1>
+        <div class="course-card mb-3">
+          <div class="row">
+            <!-- 核心課程 -->
+            <div class="col-md-6">
+              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700);">📜 核心課程</h2>
+
+              <div class="course-card mb-3 position-relative">  
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="course-type required fs-5">必修</span>
+                  <span class="credits fs-5">綠色工程導論</span>
+                  <span class="credits fs-5">3學分</span>
+                  <a href="green_engineering_intro.html" class="stretched-link"></a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 右側課程 -->
+            <div class="col-md-6">
+              <div class="mb-3" style="height: 39px;"></div>
+              <div class="course-card mb-3 position-relative">
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="course-type required fs-5">必修</span>
+                  <span class="credits fs-5">碳足跡生命週期評估</span>
+                  <span class="credits fs-5">3學分</span>
+                  <a href="carbon_footprint_lca.html" class="stretched-link"></a>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- 綠色工程微學程 -->
-          <h1 class="mb-4 fw-bold" style="color: var(--brand-green-900)">
-            綠色工程微學程
-          </h1>
-
-          <div class="row">
-            <!-- 核心課程 -->
-            <div class="col-md-6">
-              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700)">
-                📜 核心課程
-              </h2>
-
-              <a href="green_engineering_intro.html" class="course-link">
-                <div class="course-card mb-3">
-                  <div class="d-flex flex-wrap gap-2 mb-2">
-                    <span class="course-type required fs-5">必修</span>
-                    <span class="credits fs-5">綠色工程導論</span>
-                    <span class="credits fs-5">3學分</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- 右側課程 -->
-            <div class="col-md-6">
-              <div class="mb-3" style="height: 39px"></div>
-
-              <a href="carbon_footprint_lca.html" class="course-link">
-                <div class="course-card mb-3">
-                  <div class="d-flex flex-wrap gap-2 mb-2">
-                    <span class="course-type required fs-5">必修</span>
-                    <span class="credits fs-5">碳足跡生命週期評估</span>
-                    <span class="credits fs-5">3學分</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- 證書取得條件 -->
+          <!-- 綠色工程微學程畢業要求 -->
           <div class="mb-5">
-            <h4 class="mb-3 fw-bold" style="color: var(--brand-green-700)">
-              📜 證書取得條件
-            </h4>
+            <h4 class="mb-3 fw-bold" style="color: var(--brand-green-700);">📜 證書取得條件</h4>
             <div class="certificate-info">
-              <p class="mb-0">
-                選修本計畫產業學分學程中至少一門基礎核心必修課程，及計畫中非學生所屬系所開設的課程或專題共六學分以上，發給高科大「綠色工程微學程證書」。
-              </p>
+              <p class="mb-0">選修本計畫產業學分學程中至少一門基礎核心必修課程，及計畫中非學生所屬系所開設的課程或專題共六學分以上，發給高科大「綠色工程微學程證書」。</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div data-include="partials/footer.html"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <div data-include="partials/footer.html"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
