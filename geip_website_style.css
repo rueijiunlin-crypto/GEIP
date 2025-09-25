@@ -1934,3 +1934,12 @@ a:hover {
   padding: 10px 15px;
   margin: 0;
 }
+
+.course-card a {
+  color: inherit;        /* 保持原本字色 */
+  display: block;        /* 讓 a 包覆整個框 */
+}
+
+.course-card a:hover {
+  text-decoration: none; /* hover 時不要出現底線 */
+}
