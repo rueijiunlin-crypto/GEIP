@@ -234,12 +234,12 @@ body > .container {
 .footer {
   background-color: var(--brand-green-900);
   color: var(--white);
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 20px;
 }
 
 .footer-logo {
-  height: 100px;   /* 依需求調整 */
+  height: 85px;   /* 依需求調整 */
   width: auto;
   display: block;
   margin: 0 auto; /* 手機版置中 */
