@@ -234,8 +234,15 @@ body > .container {
 .footer {
   background-color: var(--brand-green-900);
   color: var(--white);
-  padding: 10px 0;
-  font-size: 20px;
+  padding: 15px 0;
+  font-size: 18px;
+}
+
+.footer-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;     /* 讓左右間距平均 */
 }
 
 .footer-logo {
@@ -248,7 +255,14 @@ body > .container {
 .footer-contact {
   line-height: 1.6;
   opacity: 0.9;
+  display: block;
+  text-align: left;       /* 左對齊，看起來更自然 */
 }
+
+.nowrap {
+  white-space: nowrap;
+}
+
 /* 平板 (max-width: 991px) */
 @media (max-width: 991px) {
   .footer {
