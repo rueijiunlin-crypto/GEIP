@@ -4,132 +4,175 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="image/title1.png" type="image/png">
-  <title>修課規範</title>
+  <title>修課規範與證書</title>
   <script src="js/title_prefix.js"></script>
   <link rel="stylesheet" href="geip_website_style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="js/includes.js" defer></script>
 </head>
 <body>
-
-  <!-- 導覽列 -->
   <div data-include="partials/navbar.html"></div>
 
   <div class="container my-5">
     <div class="row">
       <div class="col-12">
-        <!-- 綠色工程產業學分學程卡片 -->
-        <h1 class="mb-4 fw-bold" style="color: var(--brand-black-900);">綠色工程產業學分學程</h1>
-        <div class="course-card mb-3">   
-          <!-- 必修課程區塊 - 並排顯示 -->
-          <div class="row">
-            <!-- 核心課程 -->
-            <div class="col-md-6">
-              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700);">📜 核心課程</h2>
+        <h1 class="mb-4 fw-bold">修課規範與證書</h1>
 
-              <div class="course-card mb-3 position-relative">  
-                <div class="d-flex flex-wrap gap-2 mb-2">
-                  <span class="course-type required fs-5">必修</span>
-                  <span class="credits fs-5">綠色工程導論</span>
-                  <span class="credits fs-5">3學分</span>
-                  <a href="green_engineering_intro.html" class="stretched-link"></a>
-                </div>
-              </div>
-
-              <div class="course-card mb-3 position-relative">
-                <div class="d-flex flex-wrap gap-2 mb-2">
-                  <span class="course-type required fs-5">必修</span>
-                  <span class="credits fs-5">碳足跡生命週期評估</span>
-                  <span class="credits fs-5">3學分</span>
-                  <a href="carbon_footprint_lca.html" class="stretched-link"></a>
-                </div>
-              </div>
-
-              <div class="course-card mb-3 position-relative">
-                <div class="d-flex flex-wrap gap-2 mb-2">
-                  <span class="course-type required fs-5">必修</span>
-                  <span class="credits fs-5">跨領域實務專題（與業界合作）</span>
-                  <span class="credits fs-5">2學分</span>
-                  <a href="cross_discipline_project.html" class="stretched-link"></a>
-                </div>
-              </div>
-            </div>
-            
-            <!-- 企業實習 -->
-            <div class="col-md-6">
-              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700);">📜 企業實習</h2>
-
-              <div class="course-card mb-3 position-relative">
-                <div class="d-flex flex-wrap gap-2 mb-2">
-                  <span class="course-type required fs-5">必修</span>
-                  <span class="credits fs-5">學期實習</span>
-                  <span class="credits fs-5">6-9學分</span>
-                  <a href="semester_internship.html" class="stretched-link"></a>
-                </div>
-              </div>
-
-              <div class="course-card mb-3 position-relative">
-                <div class="d-flex flex-wrap gap-2 mb-2">
-                  <span class="course-type required fs-5">必修</span>
-                  <span class="credits fs-5">暑期實習</span>
-                  <span class="credits fs-5">3學分</span>
-                  <a href="summer_internship.html" class="stretched-link"></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 畢業要求區塊 -->
-          <div class="mt-5">
-            <div class="mb-5">
-              <h4 class="mb-3 fw-bold" style="color: var(--brand-green-700);">📜 證書取得條件</h4>
-              <div class="certificate-info">
-                <p class="mb-0">完成必修課程及選修課程12學分以上，計畫總辦公室核發「綠色工程跨領域人才證書」，及高科大「綠色工程產業學分學程證書」。</p>
-              </div>
-            </div>
+        <div class="course-card mb-5">
+          <h2 class="mb-3 fw-bold">兩類學程快速比較</h2>
+          <div class="table-responsive">
+            <table class="curriculum-table comparison-table mb-0">
+              <thead>
+                <tr>
+                  <th>項目</th>
+                  <th>綠色工程產業學分學程</th>
+                  <th>綠色工程微學程</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="項目">修讀對象</td>
+                  <td data-label="產業學分學程">智慧機電學院、工學院大學部學生</td>
+                  <td data-label="微學程">本校大學部學生</td>
+                </tr>
+                <tr>
+                  <td data-label="項目">最低修習學分</td>
+                  <td data-label="產業學分學程">至少 12 學分</td>
+                  <td data-label="微學程">至少 6 學分</td>
+                </tr>
+                <tr>
+                  <td data-label="項目">修課核心</td>
+                  <td data-label="產業學分學程">必修核心課程、跨領域實務專題、企業實習與學程選修</td>
+                  <td data-label="微學程">至少 1 門必修課，另修非所屬系所開設之學程選修或專題</td>
+                </tr>
+                <tr>
+                  <td data-label="項目">實習要求</td>
+                  <td data-label="產業學分學程">須修讀所屬系所之學期或暑期實習，至少 3 學分</td>
+                  <td data-label="微學程">無強制企業實習要求</td>
+                </tr>
+                <tr>
+                  <td data-label="項目">修畢證書</td>
+                  <td data-label="產業學分學程">綠色工程產業學分學程證書</td>
+                  <td data-label="微學程">綠色工程微學程證書</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <!-- 綠色工程微學程 -->
-        <h1 class="mb-4 fw-bold" style="color: var(--brand-green-900);">綠色工程微學程</h1>
-        <div class="course-card mb-3">
-          <div class="row">
-            <!-- 核心課程 -->
-            <div class="col-md-6">
-              <h2 class="mb-3 fw-bold" style="color: var(--brand-black-700);">📜 核心課程</h2>
-
-              <div class="course-card mb-3 position-relative">  
-                <div class="d-flex flex-wrap gap-2 mb-2">
-                  <span class="course-type required fs-5">必修</span>
-                  <span class="credits fs-5">綠色工程導論</span>
-                  <span class="credits fs-5">3學分</span>
-                  <a href="green_engineering_intro.html" class="stretched-link"></a>
-                </div>
+        <section class="mb-5">
+          <h2 class="mb-4 fw-bold">綠色工程產業學分學程</h2>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">修讀資格與目標</h3>
+                <ul class="mb-0">
+                  <li>修讀對象為本校智慧機電學院及工學院日間部大學部學生。</li>
+                  <li>以培育具綠色工程知識、跨域整合能力與產業實作經驗的人才為核心目標。</li>
+                  <li>課程設計採「基礎理論 + 實務操作 + 跨領域整合」方向。</li>
+                  <li>招收名額依本校當學期選課須知與修讀人數限制辦理。</li>
+                </ul>
               </div>
             </div>
-            
-            <!-- 右側課程 -->
-            <div class="col-md-6">
-              <div class="mb-3" style="height: 39px;"></div>
-              <div class="course-card mb-3 position-relative">
-                <div class="d-flex flex-wrap gap-2 mb-2">
-                  <span class="course-type required fs-5">必修</span>
-                  <span class="credits fs-5">碳足跡生命週期評估</span>
-                  <span class="credits fs-5">3學分</span>
-                  <a href="carbon_footprint_lca.html" class="stretched-link"></a>
-                </div>
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">修畢條件</h3>
+                <ul class="mb-0">
+                  <li>至少修滿 12 學分。</li>
+                  <li>須納入綠色工程導論、碳足跡與生命週期評估、跨領域實務專題、企業實習及學程選修。</li>
+                  <li>企業實習需依學生所屬系所選修該系之學期或暑期實習課程。</li>
+                  <li>學程課規表外課程如欲認列，須經學程規劃單位依課程內容與學習成果審核通過。</li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <!-- 綠色工程微學程畢業要求 -->
-          <div class="mb-5">
-            <h4 class="mb-3 fw-bold" style="color: var(--brand-green-700);">📜 證書取得條件</h4>
-            <div class="certificate-info">
-              <p class="mb-0">選修本計畫產業學分學程中至少一門基礎核心必修課程，及計畫中非學生所屬系所開設的課程或專題共六學分以上，發給高科大「綠色工程微學程證書」。</p>
+          <div class="row g-4 mt-1">
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">實務專題規定</h3>
+                <ul class="mb-0">
+                  <li>實務專題由學程規劃單位、指導老師與廠商共同擬定。</li>
+                  <li>需由兩個科系以上學生共同完成。</li>
+                  <li>專題內容須包含綠色工程相關議題。</li>
+                  <li>至少應修 2 學分。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">企業實習規定</h3>
+                <ul class="mb-0">
+                  <li>實習單位需經學程規劃單位認可。</li>
+                  <li>實習內容由學程規劃單位、學生、指導老師及廠商共同擬定。</li>
+                  <li>實習內容須包含綠色工程相關實作。</li>
+                  <li>至少應修 3 學分，可依系所課程安排修讀至 9 學分。</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="certificate-info">
+            修畢本學程規定課程且成績及格者，得於畢業前向學程規劃單位提出申請，經校內程序核定後核發「綠色工程產業學分學程證書」。
+          </div>
+        </section>
+
+        <section>
+          <h2 class="mb-4 fw-bold">綠色工程微學程</h2>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">修讀資格與定位</h3>
+                <ul class="mb-0">
+                  <li>修讀對象為本校日間部大學部學生。</li>
+                  <li>提供非工學領域學生或想先建立綠色工程基礎者入門修讀。</li>
+                  <li>課程由校內相關教師與業師共同規劃授課。</li>
+                  <li>招收名額依本校選課須知與課程容量辦理。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">修畢條件</h3>
+                <ul class="mb-0">
+                  <li>至少修滿 6 學分。</li>
+                  <li>需修讀至少 1 門學程必修課。</li>
+                  <li>另須修讀非學生所屬系所開設之學程選修課程或專題。</li>
+                  <li>課規表外課程如欲認列，亦須經學程規劃單位審核通過。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 mt-1">
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">可採計內容</h3>
+                <ul class="mb-0">
+                  <li>核心必修可由綠色工程導論或碳足跡與生命週期評估起修。</li>
+                  <li>跨領域實務專題可作為進階修讀選項。</li>
+                  <li>學程選修以綠色工程、碳管理、綠色製造、能源概論等方向為主。</li>
+                  <li>鼓勵跨院系修課，擴大學生參與綠色工程議題的深度與廣度。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="course-card h-100">
+                <h3 class="mb-3">證書申請</h3>
+                <ul class="mb-0">
+                  <li>完成微學程學分規定且成績及格後，可於畢業前提出申請。</li>
+                  <li>經校內程序核定後，核發「綠色工程微學程證書」。</li>
+                  <li>若後續加修實習與更多學程課程，可再評估是否銜接產業學分學程。</li>
+                  <li>實際申請時程仍以學校公告為準。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="certificate-info">
+            微學程適合希望先建立綠色工程基礎、跨域探索或補強永續與淨零知識的同學；完成至少 6 學分並符合修讀規定後，即可申請「綠色工程微學程證書」。
+          </div>
+        </section>
       </div>
     </div>
   </div>

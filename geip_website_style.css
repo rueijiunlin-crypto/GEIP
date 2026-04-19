@@ -946,6 +946,51 @@ a:hover {
   font-size: 1.1rem;
 }
 
+.comparison-table td:first-child,
+.comparison-table th:first-child {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.step-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.step-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+.step-card h3 {
+  color: var(--brand-green-900);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-card p {
+  color: var(--brand-green-700);
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.step-badge {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--brand-green-700), var(--brand-green-500));
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
 /* 響應式調整 */
 @media (max-width: 767px) {
   .info-section {
@@ -973,6 +1018,10 @@ a:hover {
     padding: 0.75rem 1.5rem;
     font-size: 0.95rem;
     min-width: 180px;
+  }
+
+  .comparison-table td:first-child {
+    white-space: normal;
   }
 }
 

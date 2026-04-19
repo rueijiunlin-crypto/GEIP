@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="image\title1.png" type="image/png">
+  <link rel="icon" href="image/title1.png" type="image/png">
   <title>課程規劃表</title>
   <script src="js/title_prefix.js"></script>
   <link rel="stylesheet" href="geip_website_style.css">
@@ -11,70 +11,261 @@
   <script src="js/includes.js" defer></script>
 </head>
 <body>
-
-  <!-- 導覽列 -->
   <div data-include="partials/navbar.html"></div>
 
   <div class="container my-5">
     <div class="row">
       <div class="col-12">
-        <h1 class="mb-5 fw-bold">課程規劃表</h1>
-        
-        <!-- 必修課程表格 -->
-        <!--<h2 class="mb-4 text-success">必修課程</h2>-->
-        <div class="table-responsive">
-          <table class="curriculum-table">
-            <thead>
-              <tr>
-                <th>修別</th>
-                <th>課程名稱</th>
-                <th>學分數</th>
-                <th>永久課號</th>
-                <th>開課/支援單位</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- 核心課程 -->
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type required">必修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">綠色工程導論</td>
-                <td data-label="學分數" class="credits">3</td>
-                <td data-label="永久課號" class="course-code">223C10001</td>
-                <td data-label="開課/支援單位" class="department">智慧機電學院</td>
-              </tr>
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type required">必修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">碳足跡與生命週期評估</td>
-                <td data-label="學分數" class="credits">3</td>
-                <td data-label="永久課號" class="course-code">500C10015</td>
-                <td data-label="開課/支援單位" class="department">工學院</td>
-              </tr>
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type required">必修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">跨領域實務專題(一)<br>跨領域實務專題(二)</td>
-                <td data-label="學分數" class="credits">2</td>
-                <td data-label="永久課號" class="course-code">030C10007<br>030C10004</td>
-                <td data-label="開課/支援單位" class="department">創新創業發展處</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-              
-        <!-- 實習課程 -->
-        <h2 class="mb-4 fw-bold">
-          各系所對應開設實習課程
-          <span class="course-type required d-inline d-md-none ms-2">必修</span>
-        </h2>
+        <h1 class="mb-4 fw-bold">課程規劃表</h1>
 
-        <div class="table-responsive">
-          <table class="curriculum-table">
-            <thead>
+        <section class="mb-5">
+          <h2 class="mb-4 fw-bold">綠色工程產業學分學程</h2>
+          <div class="course-card mb-4">
+            產學學程需選修計畫之必修課程「綠色工程導論」、「碳足跡與生命週期評估」、「跨領域實務專題」、實習課程及選修課程，最低修習學分總數至少 12 學分
+          </div>
+          <h3 class="mb-3">核心必修與實務專題</h3>
+          <div class="table-responsive">
+            <table class="curriculum-table">
+              <thead>
+                <tr>
+                  <th>修別</th>
+                  <th>課程類別</th>
+                  <th>課程名稱</th>
+                  <th>學分數</th>
+                  <th>永久課號</th>
+                  <th>開課/支援單位</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">核心課程 I</td>
+                  <td data-label="課程名稱" class="course-name">綠色工程導論</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">223C10001</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">核心課程 II</td>
+                  <td data-label="課程名稱" class="course-name">碳足跡與生命週期評估</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">500C10015</td>
+                  <td data-label="開課/支援單位" class="department">工學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">實務專題</td>
+                  <td data-label="課程名稱" class="course-name">跨領域實務專題(一)</td>
+                  <td data-label="學分數" class="credits">2</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">實務專題</td>
+                  <td data-label="課程名稱" class="course-name">跨領域實務專題(二)</td>
+                  <td data-label="學分數" class="credits">2</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="course-card">
+            <strong>實務專題說明：</strong>
+            至少應修 2 學分，題目需由學程規劃單位、指導老師與合作廠商共同擬定，並由兩個科系以上學生共同完成，內容須包含綠色工程相關議題。
+          </div>
+
+          <h3 class="mb-3 mt-5">企業實習課程</h3>
+          <div class="table-responsive">
+            <table class="curriculum-table">
+              <thead>
+                <tr>
+                  <th>修別</th>
+                  <th>課程類別</th>
+                  <th>課程名稱</th>
+                  <th>學分數</th>
+                  <th>永久課號</th>
+                  <th>開課/支援單位</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">208C10276<br>208C10275</td>
+                  <td data-label="開課/支援單位" class="department">化學工程與材料工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">201C10459</td>
+                  <td data-label="開課/支援單位" class="department">土木工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">202C10444<br>202C10445</td>
+                  <td data-label="開課/支援單位" class="department">機械工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">209C10559<br>209C10561</td>
+                  <td data-label="開課/支援單位" class="department">模具工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">205C10302<br>205C10310</td>
+                  <td data-label="開課/支援單位" class="department">工業工程與管理系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">暑期實習</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">205C10290</td>
+                  <td data-label="開課/支援單位" class="department">工業工程與管理系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">營建工程學期實習（一）<br>營建工程學期實習（二）</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">102C10249<br>102C10248</td>
+                  <td data-label="開課/支援單位" class="department">營建工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)<br>暑期實習</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">103C10299<br>103C10300<br>103C10291</td>
+                  <td data-label="開課/支援單位" class="department">環境與安全衛生工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習-精密製造實務實習 I<br>學期實習-生產工程實務實習 I<br>學期實習-品質管制實務實習 I<br>學期實習-精密製造實務實習 II<br>學期實習-生產工程實務實習 II<br>學期實習-品質管制實務實習 II</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">107C10127<br>107C10128<br>107C10129<br>107C10130<br>107C10131<br>107C10132</td>
+                  <td data-label="開課/支援單位" class="department">機電工程系精密機械組、智慧自動化組</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程類別">企業實習</td>
+                  <td data-label="課程名稱" class="course-name">學期實習(一)</td>
+                  <td data-label="學分數" class="credits">3-9</td>
+                  <td data-label="永久課號" class="course-code">106C10052</td>
+                  <td data-label="開課/支援單位" class="department">能源與冷凍空調工程系</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="course-card">
+            <strong>企業實習說明：</strong>
+            須選修所屬系所開設之實習課程，至少應修 3 學分；實習單位與內容需經學程規劃單位認可，且內容須納入綠色工程相關實作。
+          </div>
+
+          <h3 class="mb-3 mt-5">學程選修課程</h3>
+          <div class="table-responsive">
+            <table class="curriculum-table">
+              <thead>
+                <tr>
+                  <th>修別</th>
+                  <th>課程類別</th>
+                  <th>課程名稱</th>
+                  <th>學分數</th>
+                  <th>永久課號</th>
+                  <th>開課/支援單位</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">選修</span></td>
+                  <td data-label="課程類別">選修課程 I</td>
+                  <td data-label="課程名稱" class="course-name">綠色智慧製造與循環技術</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">選修</span></td>
+                  <td data-label="課程類別">選修課程 II</td>
+                  <td data-label="課程名稱" class="course-name">機器設備智能診斷系統</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">選修</span></td>
+                  <td data-label="課程類別">選修課程 III</td>
+                  <td data-label="課程名稱" class="course-name">碳盤查與碳足跡</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">205C10322</td>
+                  <td data-label="開課/支援單位" class="department">工業工程與管理系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">選修</span></td>
+                  <td data-label="課程類別">選修課程 IV</td>
+                  <td data-label="課程名稱" class="course-name">綠色科技與能源概論</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">工學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">選修</span></td>
+                  <td data-label="課程類別">選修課程 V</td>
+                  <td data-label="課程名稱" class="course-name">生態工程材料選擇與應用</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">102B10112</td>
+                  <td data-label="開課/支援單位" class="department">營建工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">選修</span></td>
+                  <td data-label="課程類別">選修課程 VI</td>
+                  <td data-label="課程名稱" class="course-name">創客微學分（一）</td>
+                  <td data-label="學分數" class="credits">1</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">高瞻科技不分系學士學位學程</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">選修</span></td>
+                  <td data-label="課程類別">選修課程 VI</td>
+                  <td data-label="課程名稱" class="course-name">創客微學分（二）</td>
+                  <td data-label="學分數" class="credits">1</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">高瞻科技不分系學士學位學程</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="mb-4 fw-bold">綠色工程微學程</h2>
+          <div class="course-card mb-4">
+            微學程需修讀至少一門必修課，並搭配非學生所屬系所開設之學程選修課程或專題，最低修習學分總數至少 6 學分。
+          </div>
+
+          <h3 class="mb-3">微學程可採計必修</h3>
+          <div class="table-responsive">
+            <table class="curriculum-table">
+              <thead>
                 <tr>
                   <th>修別</th>
                   <th>課程名稱</th>
@@ -82,133 +273,106 @@
                   <th>永久課號</th>
                   <th>開課/支援單位</th>
                 </tr>
-              </thead>  
+              </thead>
               <tbody>
-              <tr>
-                <td data-label="修別" rowspan="9">
-                  <span class="course-type required">必修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">208C10276<br>208C10275</td>
-                <td data-label="開課/支援單位" class="department">化學工程與材料工程系</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">學期實習</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">201C10459</td>
-                <td data-label="開課/支援單位" class="department">土木工程系</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">202C10444<br>202C10445</td>
-                <td data-label="開課/支援單位" class="department">機械工程系</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">209C10559<br>209C10561</td>
-                <td data-label="開課/支援單位" class="department">模具工程系</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">205C10302<br>205C10310</td>
-                <td data-label="開課/支援單位" class="department">工業工程與管理系</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">營建工程學期實習（一）<br>營建工程學期實習（二）</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">102C10249<br>102C10248</td>
-                <td data-label="開課/支援單位" class="department">營建工程系</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">學期實習(一)<br>學期實習(二)</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">103C10299<br>103C10300</td>
-                <td data-label="開課/支援單位" class="department">環境與安全衛生工程系</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">學期實習-精密製造實務實習I<br>學期實習-生產工程實務實習I<br>學期實習-品質管制實務實習I</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">107C10127<br>107C10128<br>107C10129</td>
-                <td data-label="開課/支援單位" class="department">機電工程系智慧自動化組<br>機電工程系精密機械組</td>
-              </tr>
-              <tr>
-                <td data-label="課程名稱" class="course-name">學期實習-品質管制實務實習II<br>學期實習-精密製造實務實習II<br>學期實習-生產工程實務實習II</td>
-                <td data-label="學分數" class="credits">9</td>
-                <td data-label="永久課號" class="course-code">107C10130<br>107C10131<br>107C10132</td>
-                <td data-label="開課/支援單位" class="department">機電工程系智慧自動化組<br>機電工程系精密機械組</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      
-        <!-- 選修課程表格 -->
-        <!--
-        <h2 class="mb-4 text-success mt-5">選修課程</h2>
-        <div class="table-responsive">
-          <table class="curriculum-table">
-            <thead>
-              <tr>
-                <th>修別</th>
-                <th>課程名稱</th>
-                <th>學分數</th>
-                <th>永久課號</th>
-                <th>開課/支援單位</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type elective">選修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">綠色智慧製造與循環技術</td>
-                <td data-label="學分數" class="credits">-</td>
-                <td data-label="永久課號" class="course-code">-</td>
-                <td data-label="開課/支援單位" class="department">(郭承憲老師)</td>
-              </tr>
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type elective">選修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">機器設備智能診斷系統</td>
-                <td data-label="學分數" class="credits">3</td>
-                <td data-label="永久課號" class="course-code">105H10047</td>
-                <td data-label="開課/支援單位" class="department">機電工程系</td>
-              </tr>
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type elective">選修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">碳盤查與碳足跡</td>
-                <td data-label="學分數" class="credits">3</td>
-                <td data-label="永久課號" class="course-code">205C10322</td>
-                <td data-label="開課/支援單位" class="department">工業工程與管理系</td>
-              </tr>
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type elective">選修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">綠色能源科技概論</td>
-                <td data-label="學分數" class="credits">2</td>
-                <td data-label="永久課號" class="course-code">208C10166</td>
-                <td data-label="開課/支援單位" class="department">化學工程與材料工程系</td>
-              </tr>
-              <tr>
-                <td data-label="修別">
-                  <span class="course-type elective">選修</span>
-                </td>
-                <td data-label="課程名稱" class="course-name">生態工程材料選擇與應用</td>
-                <td data-label="學分數" class="credits">3</td>
-                <td data-label="永久課號" class="course-code">102B10112</td>
-                <td data-label="開課/支援單位" class="department">(林彥宇老師)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        -->
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程名稱" class="course-name">綠色工程導論</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">223C10001</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type required">必修</span></td>
+                  <td data-label="課程名稱" class="course-name">碳足跡與生命週期評估</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">500C10015</td>
+                  <td data-label="開課/支援單位" class="department">工學院</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="mb-3 mt-5">微學程可採計專題與選修</h3>
+          <div class="table-responsive">
+            <table class="curriculum-table">
+              <thead>
+                <tr>
+                  <th>修別</th>
+                  <th>課程名稱</th>
+                  <th>學分數</th>
+                  <th>永久課號</th>
+                  <th>開課/支援單位</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">跨領域實務專題(一)</td>
+                  <td data-label="學分數" class="credits">2</td>
+                  <td data-label="永久課號" class="course-code">030C10007 / 新課程</td>
+                  <td data-label="開課/支援單位" class="department">創新創業發展處 / 智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">跨領域實務專題(二)</td>
+                  <td data-label="學分數" class="credits">2</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">綠色智慧製造與循環技術</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">機器設備智能診斷系統</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">智慧機電學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">碳盤查與碳足跡</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">205C10322</td>
+                  <td data-label="開課/支援單位" class="department">工業工程與管理系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">綠色科技與能源概論</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">工學院</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">生態工程材料選擇與應用</td>
+                  <td data-label="學分數" class="credits">3</td>
+                  <td data-label="永久課號" class="course-code">102B10112</td>
+                  <td data-label="開課/支援單位" class="department">營建工程系</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">創客微學分（一）</td>
+                  <td data-label="學分數" class="credits">1</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">高瞻科技不分系學士學位學程</td>
+                </tr>
+                <tr>
+                  <td data-label="修別"><span class="course-type elective">可採計</span></td>
+                  <td data-label="課程名稱" class="course-name">創客微學分（二）</td>
+                  <td data-label="學分數" class="credits">1</td>
+                  <td data-label="永久課號" class="course-code">新課程</td>
+                  <td data-label="開課/支援單位" class="department">高瞻科技不分系學士學位學程</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
     </div>
   </div>
