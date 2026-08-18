@@ -22,18 +22,39 @@
         <!-- 新聞項目將在這裡動態生成 -->
       </div>
     </div>
+    <div id="pagination-container" class="mt-4"></div>
   </div>
 
   <script>
   fetch('assets/data/news.json')
     .then(response => response.json())
     .then(data => {
-      let newsList = document.getElementById('news-list');
-      
+      const newsList = document.getElementById('news-list');
+      const paginationContainer = document.getElementById('pagination-container');
+      const itemsPerPage = 10;
+
       // 按日期排序（最新的在前）
       data.sort((a, b) => new Date(b.date) - new Date(a.date));
-      
-      data.forEach(item => {
+
+      // 取得並驗證目前頁碼；無效值會安全回到有效範圍。
+      const rawPage = new URLSearchParams(window.location.search).get('page');
+      const requestedPage = rawPage !== null && /^\d+$/.test(rawPage)
+        ? Number(rawPage)
+        : 1;
+      const totalPages = Math.ceil(data.length / itemsPerPage);
+      const lastValidPage = Math.max(totalPages, 1);
+      const currentPage = Math.min(Math.max(requestedPage, 1), lastValidPage);
+
+      if (rawPage !== null && (requestedPage !== currentPage || !/^\d+$/.test(rawPage))) {
+        const normalizedUrl = new URL(window.location.href);
+        normalizedUrl.searchParams.set('page', currentPage);
+        window.history.replaceState({}, '', normalizedUrl);
+      }
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const currentPageItems = data.slice(startIndex, startIndex + itemsPerPage);
+
+      currentPageItems.forEach(item => {
         // 解析標題中的分類
         let category = '';
         let title = item.title;
@@ -75,6 +96,53 @@
         
         newsList.appendChild(newsItem);
       });
+
+      // 只有兩頁以上才顯示分頁。
+      if (totalPages > 1) {
+        const pagination = document.createElement('nav');
+        pagination.setAttribute('aria-label', '最新消息分頁');
+
+        const paginationList = document.createElement('ul');
+        paginationList.className = 'pagination justify-content-center';
+
+        const createPageItem = (label, page, options = {}) => {
+          const listItem = document.createElement('li');
+          listItem.className = 'page-item';
+          if (options.active) listItem.classList.add('active');
+          if (options.disabled) listItem.classList.add('disabled');
+
+          const link = document.createElement('a');
+          link.className = 'page-link';
+          link.textContent = label;
+          link.href = options.disabled ? '#' : `news.html?page=${page}`;
+
+          if (options.active) link.setAttribute('aria-current', 'page');
+          if (options.disabled) {
+            link.setAttribute('aria-disabled', 'true');
+            link.setAttribute('tabindex', '-1');
+          }
+
+          listItem.appendChild(link);
+          return listItem;
+        };
+
+        paginationList.appendChild(createPageItem('上一頁', currentPage - 1, {
+          disabled: currentPage === 1
+        }));
+
+        for (let page = 1; page <= totalPages; page += 1) {
+          paginationList.appendChild(createPageItem(String(page), page, {
+            active: page === currentPage
+          }));
+        }
+
+        paginationList.appendChild(createPageItem('下一頁', currentPage + 1, {
+          disabled: currentPage === totalPages
+        }));
+
+        pagination.appendChild(paginationList);
+        paginationContainer.appendChild(pagination);
+      }
     })
     .catch(error => {
       console.error('載入最新消息失敗:', error);
